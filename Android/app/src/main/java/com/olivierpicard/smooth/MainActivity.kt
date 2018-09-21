@@ -1,12 +1,13 @@
 package com.olivierpicard.smooth
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.olivierpicard.smooth.Graphics.GActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : GActivity(R.id.viewController, R.layout.activity_main, GameScene::class.java) {
+//class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+//        setContentView(R.layout.activity_main)
     }
 }
