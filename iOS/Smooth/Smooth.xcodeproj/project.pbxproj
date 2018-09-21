@@ -15,6 +15,8 @@
 		81B8FA6A2154274A00AAFD16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81B8FA682154274A00AAFD16 /* Main.storyboard */; };
 		81B8FA6C2154274B00AAFD16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81B8FA6B2154274B00AAFD16 /* Assets.xcassets */; };
 		81B8FA6F2154274B00AAFD16 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81B8FA6D2154274B00AAFD16 /* LaunchScreen.storyboard */; };
+		81C2C9F921542E95002E2FF8 /* TerrainGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C2C9F821542E95002E2FF8 /* TerrainGenerator.swift */; };
+		81C2C9FB215436A1002E2FF8 /* TerrainSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C2C9FA215436A1002E2FF8 /* TerrainSegment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		81B8FA6B2154274B00AAFD16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81B8FA6E2154274B00AAFD16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81B8FA702154274B00AAFD16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81C2C9F821542E95002E2FF8 /* TerrainGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerrainGenerator.swift; sourceTree = "<group>"; };
+		81C2C9FA215436A1002E2FF8 /* TerrainSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerrainSegment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				81B8FA6B2154274B00AAFD16 /* Assets.xcassets */,
 				81B8FA6D2154274B00AAFD16 /* LaunchScreen.storyboard */,
 				81B8FA702154274B00AAFD16 /* Info.plist */,
+				81C2C9F821542E95002E2FF8 /* TerrainGenerator.swift */,
+				81C2C9FA215436A1002E2FF8 /* TerrainSegment.swift */,
 			);
 			path = Smooth;
 			sourceTree = "<group>";
@@ -146,7 +152,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81C2C9F921542E95002E2FF8 /* TerrainGenerator.swift in Sources */,
 				81B8FA652154274A00AAFD16 /* GameScene.swift in Sources */,
+				81C2C9FB215436A1002E2FF8 /* TerrainSegment.swift in Sources */,
 				81B8FA672154274A00AAFD16 /* GameViewController.swift in Sources */,
 				81B8FA5F2154274A00AAFD16 /* AppDelegate.swift in Sources */,
 			);
