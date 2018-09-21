@@ -7,7 +7,7 @@ import android.graphics.Canvas;
  * les modifications fait lors de l'update
  */
 
-public interface IGDrawable {
+public interface IGDrawable extends IGRenderAllowable{
     GPoint getPosition();
     void setPosition(GPoint position);
 
@@ -16,14 +16,4 @@ public interface IGDrawable {
 
     GScene getScene();
     void setScene(GScene scene);
-
-    float getZRotation();
-    void setZRotation(float zRotation);
-
-    int getZPosition();
-    void setZPosition(int zPosition);
-
-    GRelativeRender getRelativeRender();
-
-    void render(Canvas canvas);
 }
