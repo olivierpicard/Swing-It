@@ -33,7 +33,9 @@ public abstract class GScene extends GNode implements Runnable {
     public volatile boolean enable = false;
     public TouchEvent touchEvent;
     private GSize size;
+
     private long time_from_lastFrame = 0;
+    public int colorStatsText = Color.WHITE;
     public boolean showFPS = true;
     public boolean showNodeCounter = true;
 
@@ -99,7 +101,7 @@ public abstract class GScene extends GNode implements Runnable {
 
         Paint p = new Paint();
         p.setTextSize(12);
-        p.setColor(Color.WHITE);
+        p.setColor(colorStatsText);
         p.setAntiAlias(true);
         p.setTextAlign(Paint.Align.LEFT);
         if(this.showFPS)

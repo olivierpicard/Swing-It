@@ -1,6 +1,7 @@
 package com.caffeine.swingit.Graphics;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -82,6 +83,7 @@ public class GSceneViewController extends SurfaceView implements SurfaceHolder.C
             this.sceneThread.start();
             this.scene.showFPS = true;
             this.scene.showNodeCounter = true;
+            this.scene.colorStatsText = Color.BLACK;
     }
 
     @Override

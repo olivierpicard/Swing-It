@@ -5,7 +5,10 @@ package com.caffeine.swingit.Graphics;
  * les modifications fait lors de l'update
  */
 
-public interface IGSizeDrawable extends IGDrawable {
+public interface IGBoundDrawable extends IGDrawable {
     GSize getSize();
     void setSize(GSize size);
+
+    GPoint getPosition();
+    void setPosition(GPoint position);
 }

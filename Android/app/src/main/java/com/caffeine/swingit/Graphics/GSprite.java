@@ -12,7 +12,7 @@ import android.support.annotation.Nullable;
  * Représente une image(sprite) sur la scene
  */
 
-public class GSprite extends GNode implements IGSizeDrawable {
+public class GSprite extends GNode implements IGBoundDrawable {
     private GSize size;
     private GPoint position;
     private float zRotation;
@@ -57,8 +57,8 @@ public class GSprite extends GNode implements IGSizeDrawable {
 
         if(rotationPivot == GRelativeRender.RotationPivot.ROOT) {
             GNode rootPosition = this.getRootParent();
-            if(rootPosition instanceof IGSizeDrawable)
-                pivotPosition = ((IGSizeDrawable) rootPosition).getPosition();
+            if(rootPosition instanceof IGBoundDrawable)
+                pivotPosition = ((IGBoundDrawable) rootPosition).getPosition();
         }
 
         canvas.rotate(this.relativeRender.zRotation, pivotPosition.x, pivotPosition.y);

@@ -13,9 +13,6 @@ public interface IGDrawable
     float getZRotation();
     void setZRotation(float zRotation);
 
-    GPoint getPosition();
-    void setPosition(GPoint position);
-
     GScene getScene();
     void setScene(GScene scene);
 

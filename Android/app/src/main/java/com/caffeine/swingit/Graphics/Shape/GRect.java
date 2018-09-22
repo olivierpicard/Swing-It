@@ -6,17 +6,13 @@ import android.graphics.RectF;
 
 import com.caffeine.swingit.Graphics.GPoint;
 import com.caffeine.swingit.Graphics.GSize;
-import com.caffeine.swingit.Graphics.IGSizeDrawable;
 
-public class GRect extends GShape implements IGSizeDrawable
+public class GRect extends GShape
 {
-    private GSize size;
     private RectF bounds;
 
     public GRect(GPoint position, GSize size, int color)
     {
-        super(position);
-        this.size = size;
         setColor(color);
         thickness = 1f;
 
@@ -29,25 +25,18 @@ public class GRect extends GShape implements IGSizeDrawable
     }
 
 
+    public GRect(RectF bounds, int color)
+    {
+        this.bounds = bounds;
+        setColor(color);
+    }
+
+
     public void render(Canvas canvas)
     {
         Paint p = new Paint();
         p.setStrokeWidth(thickness);
         p.setColor(getColor());
         canvas.drawRect(bounds, p);
-    }
-
-
-    @Override
-    public GSize getSize()
-    {
-        return size;
-    }
-
-
-    @Override
-    public void setSize(GSize size)
-    {
-        this.size = size;
     }
 }

@@ -15,11 +15,9 @@ public abstract class GShape extends GNode implements IGDrawable
     private GRelativeRender relativeRender;
     public GRelativeRender.RotationPivot rotationPivot;
     protected float thickness;
-    protected GPoint position;
 
 
-    public GShape(GPoint position) {
-        this.position = position;
+    public GShape() {
         relativeRender = new GRelativeRender();
         rotationPivot = GRelativeRender.RotationPivot.ROOT;
         zRotation = 0f;
@@ -41,9 +39,6 @@ public abstract class GShape extends GNode implements IGDrawable
 
     public float getZRotation() { return zRotation; }
     public void setZRotation(float zRotation) { this.zRotation = zRotation; }
-
-    public GPoint getPosition() { return position; }
-    public void setPosition(GPoint position) { this.position = position; }
 
     public GRelativeRender getRelativeRender() {
         return relativeRender;
