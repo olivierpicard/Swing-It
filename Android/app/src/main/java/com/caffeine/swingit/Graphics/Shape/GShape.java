@@ -1,9 +1,14 @@
-package com.caffeine.swingit.Graphics;
+package com.caffeine.swingit.Graphics.Shape;
 
 import android.graphics.Canvas;
-import android.graphics.Color;
 
-public abstract class GShape extends GNode implements IGRenderAllowable
+import com.caffeine.swingit.Graphics.GNode;
+import com.caffeine.swingit.Graphics.GPoint;
+import com.caffeine.swingit.Graphics.GRelativeRender;
+import com.caffeine.swingit.Graphics.GTools;
+import com.caffeine.swingit.Graphics.IGDrawable;
+
+public abstract class GShape extends GNode implements IGDrawable
 {
     private int color;
     private float zRotation;

@@ -1,18 +1,33 @@
-package com.olivierpicard.smooth.Graphics;
+package com.caffeine.swingit.Graphics.Shape;
 
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
+
+import com.caffeine.swingit.Graphics.GPoint;
 
 public class GLine extends GShape
 {
     private GPoint goalPoint;
 
+
+    private void init(GPoint to)
+    {
+        goalPoint = to;
+        thickness = 2f;
+    }
+
     public GLine(GPoint from, GPoint to)
     {
         super(from);
-        goalPoint = to;
-        thickness = 2f;
+        init(to);
+    }
+
+
+    public GLine(GPoint from, GPoint to, int color)
+    {
+        super(from);
+        init(to);
+        setColor(color);
     }
 
 

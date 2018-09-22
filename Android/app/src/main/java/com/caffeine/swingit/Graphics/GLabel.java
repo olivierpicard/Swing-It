@@ -11,7 +11,7 @@ import android.graphics.Typeface;
  * Created by olivierpicard on 14/04/2018.
  */
 
-public class GLabel extends GNode implements IGDrawable {
+public class GLabel extends GNode implements IGSizeDrawable {
     /*
      * Défini un alignement pour masquer à l'utilisateur celui de Paint.Align
      * (Plus conviviale et plus indépendant)

@@ -29,17 +29,17 @@ public class GRelativeRender {
 
 
     public void processChildRelativity(@NonNull GNode current) {
-        if(!(current instanceof IGDrawable)) return;
+        if(!(current instanceof IGSizeDrawable)) return;
 
-        final IGDrawable _current = (IGDrawable)current;
+        final IGSizeDrawable _current = (IGSizeDrawable)current;
         this.zRotation = _current.getZRotation();
         this.zPosition = _current.getZPosition();
         this.position = _current.getPosition();
 
-        if (current.parent == null || !(current.parent instanceof IGDrawable)) return;
+        if (current.parent == null || !(current.parent instanceof IGSizeDrawable)) return;
 
         processChildRelativity(current.parent);
-        final IGDrawable parent = (IGDrawable)current.parent;
+        final IGSizeDrawable parent = (IGSizeDrawable)current.parent;
         this.zRotation = parent.getRelativeRender().zRotation + _current.getZRotation();
         this.position = GPoint.add(_current.getPosition(), parent.getRelativeRender().position);
         this.zPosition = parent.getRelativeRender().zPosition + _current.getZPosition();

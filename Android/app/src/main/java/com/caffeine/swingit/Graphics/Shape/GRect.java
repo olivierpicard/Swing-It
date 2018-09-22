@@ -1,0 +1,53 @@
+package com.caffeine.swingit.Graphics.Shape;
+
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.RectF;
+
+import com.caffeine.swingit.Graphics.GPoint;
+import com.caffeine.swingit.Graphics.GSize;
+import com.caffeine.swingit.Graphics.IGSizeDrawable;
+
+public class GRect extends GShape implements IGSizeDrawable
+{
+    private GSize size;
+    private RectF bounds;
+
+    public GRect(GPoint position, GSize size, int color)
+    {
+        super(position);
+        this.size = size;
+        setColor(color);
+        thickness = 1f;
+
+        final GSize halfSize = new GSize(size.width / 2, size.height / 2);
+        bounds = new RectF(
+                position.x - halfSize.width,
+                position.y - halfSize.height,
+                position.x + halfSize.width,
+                position.y + halfSize.height);
+    }
+
+
+    public void render(Canvas canvas)
+    {
+        Paint p = new Paint();
+        p.setStrokeWidth(thickness);
+        p.setColor(getColor());
+        canvas.drawRect(bounds, p);
+    }
+
+
+    @Override
+    public GSize getSize()
+    {
+        return size;
+    }
+
+
+    @Override
+    public void setSize(GSize size)
+    {
+        this.size = size;
+    }
+}

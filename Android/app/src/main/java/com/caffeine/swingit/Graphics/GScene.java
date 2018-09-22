@@ -88,11 +88,11 @@ public abstract class GScene extends GNode implements Runnable {
 
 
     private void render(Canvas canvas) {
-        Map<Integer, List<IGRenderAllowable>> renderElements = new LinkedHashMap<>();
+        Map<Integer, List<IGDrawable>> renderElements = new LinkedHashMap<>();
         processRenderOrder(renderElements);
         SortedSet<Integer> orderedRenderElement = new TreeSet<>(renderElements.keySet());
         for(Integer id : orderedRenderElement) {
-            for(IGRenderAllowable node : renderElements.get(id)) {
+            for(IGDrawable node : renderElements.get(id)) {
                 node.render(canvas);
             }
         }
@@ -149,11 +149,11 @@ public abstract class GScene extends GNode implements Runnable {
      * Organise tous les noeuds de la scène selon leur position en z
      * @param map : Key: position en Z  -  Value: Tous les élements à cette position
      */
-    private void processRenderOrder(Map<Integer, List<IGRenderAllowable>> map) {
+    private void processRenderOrder(Map<Integer, List<IGDrawable>> map) {
         for(GNode node : this.children) {
-            if(!(node instanceof IGRenderAllowable)) continue;
-            IGRenderAllowable renderAllowable = (IGRenderAllowable)node;
-            List<IGRenderAllowable> list = map.get(renderAllowable.getRelativeRender().zPosition);
+            if(!(node instanceof IGDrawable)) continue;
+            IGDrawable renderAllowable = (IGDrawable)node;
+            List<IGDrawable> list = map.get(renderAllowable.getRelativeRender().zPosition);
             if(list == null) list = new ArrayList<>();
             list.add(renderAllowable);
             map.put(renderAllowable.getRelativeRender().zPosition, list);
