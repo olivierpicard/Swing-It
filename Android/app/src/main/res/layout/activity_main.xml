@@ -6,10 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <view
+    <com.caffeine.swingit.Graphics.GSceneViewController
         android:id="@+id/viewController"
-        class="com.olivierpicard.smooth.Graphics.GSceneViewController"
-        id="@+id/view"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
