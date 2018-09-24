@@ -17,6 +17,9 @@ class GameScene : GScene()
     val CHARACTER_XPOS = 0.2f // Percentage of screenWidth where character will be put on
     val CHARACTER_SPEED = 5f // Character displacement in pixel
     val CHARACTER_ROTATION = 25f // Rotation in degrees of the character when he moves
+    val CHARACTER_LIFE = 100 // Max life that player can have
+    val BONUS_VALUE = 18 // Value that bonus can get you if you take it
+    val CHARACTER_LIFE_DECREASE = 0.5f // character's life will be decreased each frame with this value
 
     var timelapseItemGeneration = 1000L
     var gameState = GameState.PLAY

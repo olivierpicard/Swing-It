@@ -11,16 +11,23 @@ class Character(val scene: GameScene, groundHeight: Float) :
     var swipeVector: GVector
     var isInCollision = mutableListOf<IGCollisionable>()
     var isFalling = false
+    val lifebar: ProgressBar
 
-    init {
+    init
+    {
         swipeVector = GVector.zero()
         position = GPoint(scene.size.width * scene.CHARACTER_XPOS,
                 (scene.size.height - scene.terrain.terrainHeightPixel) / 2)
+
+        lifebar = ProgressBar(scene.CHARACTER_LIFE, GSize(50f, 6f))
+        lifebar.position = GPoint(0f, -size.height/2 - lifebar.size.height * 2f)
+        addChild(lifebar)
     }
 
 
     override fun update(currentTime: Long)
     {
+        lifebar.value -= scene.CHARACTER_LIFE_DECREASE
         if(position.y + size.height < 0) isFalling = true
 
         if(!isFalling) {
@@ -29,6 +36,7 @@ class Character(val scene: GameScene, groundHeight: Float) :
             zRotation = if (yDirection > 0) scene.CHARACTER_ROTATION / 2 else -scene.CHARACTER_ROTATION / 2
         }
         else {
+            lifebar.value = 0f
             // Is Falling
             zRotation = -70f
             if(position.y >= scene.terrain.terrainTopPos - size.height / 2)
@@ -43,7 +51,10 @@ class Character(val scene: GameScene, groundHeight: Float) :
         if(collisionable == scene.terrain) {
             isFalling = true
             scene.gameState = GameScene.GameState.GAME_OVER
-        } else scene.removeChild(collisionable as GNode)
+        } else {
+            scene.removeChild(collisionable as GNode)
+            lifebar.value += scene.BONUS_VALUE
+        }
     }
 
 
