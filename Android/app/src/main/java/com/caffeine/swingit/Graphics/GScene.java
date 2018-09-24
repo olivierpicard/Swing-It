@@ -41,6 +41,7 @@ public abstract class GScene extends GNode implements Runnable {
     protected int backgroundColor = Color.BLACK;
     private List<GNode> elementsToAdd;
     private List<GNode> elementsToRemove;
+    private List<IGCollisionListener> collisionListeners;
     private GSize baseSize;
     private GSize scale;
 
@@ -65,10 +66,13 @@ public abstract class GScene extends GNode implements Runnable {
     protected void touchSwipe(@NonNull GVector vector, @NonNull GPoint startPos, @NonNull GPoint currentPos) {  }
 
 
-    public void init(GSize baseSceneSize) {
+    public void init(GSize baseSceneSize)
+    {
         touchEvent = new TouchEvent();
         elementsToAdd = new ArrayList<>();
         elementsToRemove = new ArrayList<>();
+        collisionListeners = new ArrayList<>();
+
         this.baseSize = baseSceneSize;
         final float xScale = GTools.screenMetrics.widthPixels / this.baseSize.width;
         final float yScale = GTools.screenMetrics.heightPixels / this.baseSize.height;
@@ -83,9 +87,11 @@ public abstract class GScene extends GNode implements Runnable {
     }
 
 
-    public void run() {
+    public void run()
+    {
         didInitialized();
         while(this.enable) {
+
             refreshSceneNodes();
             processTouch();
             update(System.currentTimeMillis());
@@ -104,15 +110,17 @@ public abstract class GScene extends GNode implements Runnable {
     }
 
 
-    private void render(Canvas canvas) {
+    private void render(Canvas canvas)
+    {
         Map<Integer, List<IGDrawable>> renderElements = new LinkedHashMap<>();
         processRenderOrder(renderElements);
         SortedSet<Integer> orderedRenderElement = new TreeSet<>(renderElements.keySet());
 
         for(Integer id : orderedRenderElement) {
-            for(IGDrawable drawableNode : renderElements.get(id)) {
-                if(deleteIfPossible(drawableNode)) continue;
-                drawableNode.render(canvas);
+            for(IGDrawable node : renderElements.get(id)) {
+                if(deleteIfPossible(node)) continue;
+                if(node instanceof IGCollisionable) computeCollision((IGCollisionable)node);
+                node.render(canvas);
             }
         }
 
@@ -120,11 +128,27 @@ public abstract class GScene extends GNode implements Runnable {
     }
 
 
+    private void computeCollision(IGCollisionable currentNode)
+    {
+        for(IGCollisionListener listener : collisionListeners) {
+            if(currentNode == listener) continue;
+            if(listener.getBound().intersect(currentNode.getBound()) && !listener.getCollisionItems().contains(currentNode)) {
+                listener.getCollisionItems().add(currentNode);
+                listener.collisionEnter(currentNode);
+            }
+            else if(listener.getCollisionItems().contains(currentNode)) {
+                listener.getCollisionItems().remove(currentNode);
+                listener.collisionExit(currentNode);
+            }
+        }
+    }
+
+
     private boolean deleteIfPossible(IGDrawable drawableNode)
     {
         if(drawableNode instanceof IGDeletable){
             final IGDeletable deletableNode = (IGDeletable)drawableNode;
-            if(deletableNode.canBeDeleted()){
+            if(deletableNode.canBeDeleted()) {
                 removeChild((GNode)deletableNode);
                 return true;
             }
@@ -153,16 +177,20 @@ public abstract class GScene extends GNode implements Runnable {
 
     private void refreshSceneNodes() {
         for(GNode node : elementsToRemove) {
-
+            if(node instanceof IGCollisionListener) this.collisionListeners.remove(node);
             this.children.remove(node);
             node.setScene(null);
         }
-        this.children.addAll(elementsToAdd);
+        for(GNode node : elementsToAdd) {
+            this.children.add(node);
+            if(node instanceof IGCollisionListener) this.collisionListeners.add((IGCollisionListener)node);
+        }
 
         // On peut utilisé clear, mais il me semble
         // que le garbageCollector fera mieux son travail
         // que clear()
-        elementsToAdd = new ArrayList<>();
+//        elementsToAdd = new ArrayList<>();
+        elementsToAdd.clear();
         elementsToRemove = new ArrayList<>();
     }
 
