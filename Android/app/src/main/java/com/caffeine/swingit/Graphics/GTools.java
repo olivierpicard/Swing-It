@@ -1,8 +1,8 @@
 package com.caffeine.swingit.Graphics;
 
-import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Rect;
+import android.graphics.RectF;
 import android.util.DisplayMetrics;
 
 import java.util.ArrayList;
@@ -37,6 +37,15 @@ public class GTools {
                 (int)(pos.y - size.height/2),
                 (int)(pos.x + size.width/2),
                 (int)(pos.y + size.height/2)
+        );
+    }
+
+
+    public static GPoint getPositionFromRectF(RectF bounds)
+    {
+        return new GPoint(
+                (bounds.left - bounds.right) / 2f,
+                (bounds.bottom - bounds.top) / 2f
         );
     }
 

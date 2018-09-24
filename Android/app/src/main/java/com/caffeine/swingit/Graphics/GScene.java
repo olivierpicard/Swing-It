@@ -4,6 +4,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
+import android.support.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -24,6 +26,18 @@ public abstract class GScene extends GNode implements Runnable {
         public void edit(TouchType t, GPoint pos) {isEdited = true; touchType = t; position = pos; }
     }
 
+    private class SwipeData {
+        GPoint firstTouchPos = GPoint.zero();
+        GVector vectorSwipe = GVector.zero();
+
+        void compute(GPoint newPoint) {
+            if(firstTouchPos == GPoint.zero()) return;
+            vectorSwipe = new GVector(firstTouchPos, newPoint);
+        }
+
+        void reset() { firstTouchPos = GPoint.zero(); vectorSwipe = GVector.zero(); }
+    }
+
     protected int backgroundColor = Color.BLACK;
     private List<GNode> elementsToAdd;
     private List<GNode> elementsToRemove;
@@ -32,6 +46,7 @@ public abstract class GScene extends GNode implements Runnable {
 
     public volatile boolean enable = false;
     public TouchEvent touchEvent;
+    private SwipeData swipeData = new SwipeData();
     private GSize size;
 
     private long time_from_lastFrame = 0;
@@ -44,9 +59,10 @@ public abstract class GScene extends GNode implements Runnable {
     abstract public void start();
     abstract public void update(long currentTime);
 
-    protected void touchDown(GPoint pos) { }
-    protected void touchUp(GPoint pos) { }
-    protected void touchMove(GPoint pos) { }
+    protected void touchDown(@NonNull GPoint pos) { swipeData.firstTouchPos = pos; }
+    protected void touchUp(@NonNull GPoint pos) { swipeData.reset(); }
+    protected void touchMove(@NonNull GPoint pos) { swipeData.compute(pos);}
+    protected void touchSwipe(@NonNull GVector vector, @NonNull GPoint startPos, @NonNull GPoint currentPos) {  }
 
 
     public void init(GSize baseSceneSize) {
@@ -88,17 +104,37 @@ public abstract class GScene extends GNode implements Runnable {
     }
 
 
-
     private void render(Canvas canvas) {
         Map<Integer, List<IGDrawable>> renderElements = new LinkedHashMap<>();
         processRenderOrder(renderElements);
         SortedSet<Integer> orderedRenderElement = new TreeSet<>(renderElements.keySet());
+
         for(Integer id : orderedRenderElement) {
-            for(IGDrawable node : renderElements.get(id)) {
-                node.render(canvas);
+            for(IGDrawable drawableNode : renderElements.get(id)) {
+                if(deleteIfPossible(drawableNode)) continue;
+                drawableNode.render(canvas);
             }
         }
 
+        renderStats(canvas);
+    }
+
+
+    private boolean deleteIfPossible(IGDrawable drawableNode)
+    {
+        if(drawableNode instanceof IGDeletable){
+            final IGDeletable deletableNode = (IGDeletable)drawableNode;
+            if(deletableNode.canBeDeleted()){
+                removeChild((GNode)deletableNode);
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    private void renderStats(Canvas canvas)
+    {
         Paint p = new Paint();
         p.setTextSize(12);
         p.setColor(colorStatsText);
@@ -130,6 +166,7 @@ public abstract class GScene extends GNode implements Runnable {
         elementsToRemove = new ArrayList<>();
     }
 
+
     private void processTouch() {
         if(!this.touchEvent.isEdited) return;
         this.touchEvent.isEdited = false;
@@ -143,6 +180,8 @@ public abstract class GScene extends GNode implements Runnable {
                 break;
             case MOVE:
                 touchMove(pos);
+                if(swipeData.vectorSwipe != GVector.zero())
+                    touchSwipe(swipeData.vectorSwipe, swipeData.firstTouchPos, pos);
                 break;
         }
     }

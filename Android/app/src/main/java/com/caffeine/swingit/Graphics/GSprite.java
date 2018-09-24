@@ -22,7 +22,8 @@ public class GSprite extends GNode implements IGBoundDrawable {
     public GRelativeRender.RotationPivot rotationPivot;
 
 
-    private void init() {
+    private void init(@Nullable Integer bitmapRessourceID,
+                      @Nullable Integer color) {
         this.size = GSize.zero();
         this.position = GPoint.zero();
         this.zRotation = 0;
@@ -30,18 +31,27 @@ public class GSprite extends GNode implements IGBoundDrawable {
         this.bitmap = null;
         this.relativeRender = new GRelativeRender();
         rotationPivot = GRelativeRender.RotationPivot.ROOT;
+
+        if(bitmapRessourceID != null)
+            this.bitmap = BitmapFactory.decodeResource(GTools.resources, bitmapRessourceID);
+        if(color != null) this.color = color;
     }
 
 
     public GSprite(@Nullable Integer bitmapRessourceID,
                    @Nullable Integer color, GSize size) {
         super();
-        init();
-        if(bitmapRessourceID != null)
-            this.bitmap = BitmapFactory.decodeResource(GTools.resources, bitmapRessourceID);
-        if(color != null)
-            this.color = color;
+        init(bitmapRessourceID, color);
         this.size = size;
+    }
+
+
+    public GSprite(@Nullable Integer bitmapRessourceID,
+                   @Nullable Integer color, GSize size, GPoint position) {
+        super();
+        init(bitmapRessourceID, color);
+        this.size = size;
+        this.position = position;
     }
 
 
