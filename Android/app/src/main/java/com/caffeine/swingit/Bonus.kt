@@ -18,7 +18,7 @@ class Bonus(val scene: GameScene, position: GPoint) :
 
     override fun canBeDeleted(): Boolean
     {
-        return (position.x - size.width / 2) < 0
+        return (position.x + size.width / 2 + 5) < 0
     }
 
 

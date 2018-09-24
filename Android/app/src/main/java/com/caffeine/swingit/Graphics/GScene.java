@@ -20,7 +20,7 @@ import java.util.TreeSet;
 public abstract class GScene extends GNode implements Runnable {
     public enum TouchType {DOWN, UP, MOVE}
     public class TouchEvent {
-        public boolean isEdited = false;
+        boolean isEdited = false;
         private TouchType touchType = null;
         private GPoint position = GPoint.zero();
         public void edit(TouchType t, GPoint pos) {isEdited = true; touchType = t; position = pos; }
@@ -28,14 +28,27 @@ public abstract class GScene extends GNode implements Runnable {
 
     private class SwipeData {
         GPoint firstTouchPos = GPoint.zero();
+        GPoint intermediatePos = GPoint.zero();
         GVector vectorSwipe = GVector.zero();
+        float refreshDistance = 5f;
 
         void compute(GPoint newPoint) {
-            if(firstTouchPos == GPoint.zero()) return;
-            vectorSwipe = new GVector(firstTouchPos, newPoint);
+            if(intermediatePos == GPoint.zero()) return;
+            vectorSwipe = new GVector(intermediatePos, newPoint);
+            if(GPoint.distance(intermediatePos, newPoint) > refreshDistance)
+                intermediatePos = newPoint;
         }
 
-        void reset() { firstTouchPos = GPoint.zero(); vectorSwipe = GVector.zero(); }
+        void reset() {
+            firstTouchPos = GPoint.zero();
+            vectorSwipe = GVector.zero();
+            intermediatePos = GPoint.zero();
+        }
+
+        void init(GPoint pos) {
+            firstTouchPos = pos;
+            intermediatePos = pos;
+        }
     }
 
     protected int backgroundColor = Color.BLACK;
@@ -60,10 +73,10 @@ public abstract class GScene extends GNode implements Runnable {
     abstract public void start();
     abstract public void update(long currentTime);
 
-    protected void touchDown(@NonNull GPoint pos) { swipeData.firstTouchPos = pos; }
+    protected void touchDown(@NonNull GPoint pos) { swipeData.init(pos); }
     protected void touchUp(@NonNull GPoint pos) { swipeData.reset(); }
     protected void touchMove(@NonNull GPoint pos) { swipeData.compute(pos);}
-    protected void touchSwipe(@NonNull GVector vector, @NonNull GPoint startPos, @NonNull GPoint currentPos) {  }
+    protected void touchSwipe(@NonNull GVector vectorIntermediate, @NonNull GPoint startPos, @NonNull GPoint currentPos) {  }
 
 
     public void init(GSize baseSceneSize)
@@ -272,4 +285,12 @@ public abstract class GScene extends GNode implements Runnable {
     public GSize getSize() {
         return size;
     }
+
+    /**
+     *
+     * @param d the distance to refresh the vector direction.
+     *          Set an intermediate point between start and current position, and the vector is
+     *          reCalculate on the intermediate value instead of the start position
+     */
+    final protected void setSwipeDirectionRefreshDistance(float d){ swipeData.refreshDistance = d; }
 }
