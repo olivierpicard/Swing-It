@@ -4,6 +4,12 @@ import com.caffeine.swingit.Graphics.*
 
 class GameScene : GScene()
 {
+    enum class GameState{
+        GAME_OVER,
+        PLAY,
+        START
+    }
+
     val SPEED: Float = 5f
     val BASE_TERRAIN_HEIGHT = 0.2f // Percentage of the screen that terrain take
     val UPPER_TERRAIN_HEIGHT = 0.25f // Percentage of base terrain that the upper terrain take
@@ -13,18 +19,21 @@ class GameScene : GScene()
     val CHARACTER_ROTATION = 25f // Rotation in degrees of the character when he moves
 
     var timelapseItemGeneration = 1000L
+    var gameState = GameState.PLAY
 
-    lateinit var terrainMaker: TerrainMaker
+    lateinit var terrain: Terrain
     lateinit var bonusGenerator: BonusGenerator
     lateinit var character: Character
 
 
     override fun didInitialized()
     {
-        terrainMaker = TerrainMaker(this)
+        terrain = Terrain(this)
         bonusGenerator = BonusGenerator(this)
-        character = Character(this, terrainMaker.terrainTopPos)
+        character = Character(this, terrain.terrainTopPos)
+        addChild(terrain)
         addChild(character)
+
     }
 
 
@@ -36,17 +45,40 @@ class GameScene : GScene()
 
     override fun update(currentTime: Long)
     {
-        bonusGenerator.update(currentTime)
-        for(child: GNode in children)
-        {
-            if(child !is IGUpdatable) continue
-            child.update(currentTime)
+        if(gameState == GameState.PLAY) {
+            bonusGenerator.update(currentTime)
+            for (child: GNode in children) {
+                if (child !is IGUpdatable) continue
+                child.update(currentTime)
+            }
+        } else if(gameState == GameState.GAME_OVER) {
+
         }
     }
 
 
-    override fun touchSwipe(vector: GVector, startPos: GPoint, currentPos: GPoint) {
-        super.touchSwipe(vector, startPos, currentPos)
-        character.swipeVector = vector
+    override fun touchSwipe(vectorIntermediate: GVector, startPos: GPoint, currentPos: GPoint)
+    {
+        super.touchSwipe(vectorIntermediate, startPos, currentPos)
+        character.swipeVector = vectorIntermediate
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -11,7 +11,7 @@ class BonusGenerator(val scene: GameScene) : IGUpdatable
     var lastGenerationTime: Long = 0L
 
     init {
-        screenHeightUsable = scene.size.height - scene.terrainMaker.terrainHeightPixel
+        screenHeightUsable = scene.size.height - scene.terrain.terrainHeightPixel
         positionInterval = GInterval(0f, screenHeightUsable)
     }
 
