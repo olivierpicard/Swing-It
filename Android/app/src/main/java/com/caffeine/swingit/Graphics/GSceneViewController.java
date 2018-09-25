@@ -72,7 +72,6 @@ public class GSceneViewController extends SurfaceView implements SurfaceHolder.C
         this.surfaceHolder = getHolder();
 
         try {
-//            this.scene = (GScene)sceneType.getDeclaredConstructor(GSize.class).newInstance(new GSize(480, 800));
             this.scene = (GScene)sceneType.newInstance();
             this.scene.init(new GSize(this.resolution.width, this.resolution.height));
             this.scene.enable = true;

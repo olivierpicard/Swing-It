@@ -4,7 +4,7 @@ import android.graphics.Color
 import android.graphics.Rect
 import com.caffeine.swingit.Graphics.*
 
-class Character(val scene: GameScene, groundHeight: Float) :
+class Character(val scene: GameScene) :
         GSprite(null, Color.WHITE, scene.CHARACTER_SIZE),
         IGUpdatable, IGCollisionListener
 {
@@ -28,7 +28,9 @@ class Character(val scene: GameScene, groundHeight: Float) :
     override fun update(currentTime: Long)
     {
         lifebar.value -= scene.CHARACTER_LIFE_DECREASE
-        if(position.y + size.height < 0) isFalling = true
+
+        if(lifebar.value <= 0) isFalling = true
+        else if(position.y + size.height < 0) isFalling = true
 
         if(!isFalling) {
             val yDirection = GVector.normalize(swipeVector).dy
@@ -59,8 +61,6 @@ class Character(val scene: GameScene, groundHeight: Float) :
 
 
     override fun collisionExit(collisionable: IGCollisionable) {}
-
-
     override fun getCollisionItems(): MutableList<IGCollisionable>? { return isInCollision }
     override fun setCollisionItems(itemInCollision: MutableList<IGCollisionable>) { this.isInCollision = itemInCollision }
     override fun getBound(): Rect { return GTools.getRectFromSizeAndPos(position, size) }

@@ -29,6 +29,11 @@ public class GInterval {
     }
 
 
+    public static float random(float min, float max) {
+        return (float)ThreadLocalRandom.current().nextDouble(min, max + 1);
+    }
+
+
 
 
 

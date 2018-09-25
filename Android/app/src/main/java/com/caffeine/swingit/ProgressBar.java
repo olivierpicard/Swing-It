@@ -31,6 +31,7 @@ public class ProgressBar extends GSprite {
         this.background.setPosition(GPoint.zero());
         this.background.setSize(new GSize(size));
         this.background.setZPosition(-1);
+        this.background.setAlpha(0);
         this.addChild(this.background);
     }
 
@@ -71,8 +72,10 @@ public class ProgressBar extends GSprite {
 
     public float getValue() { return this._value; }
 
+
     public void setValue(float value) {
-        if(value >= 0) this._value = value;
+        if(value > maxValue) this._value = maxValue;
+        else if(value >= 0) this._value = value;
         else this._value = 0;
         updateView();
     }

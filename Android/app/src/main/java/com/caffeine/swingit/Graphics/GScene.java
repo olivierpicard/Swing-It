@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.logging.Handler;
 
 /**
  * Scene côté vue, qui va servir à afficher
@@ -104,7 +105,6 @@ public abstract class GScene extends GNode implements Runnable {
     {
         didInitialized();
         while(this.enable) {
-
             refreshSceneNodes();
             processTouch();
             update(System.currentTimeMillis());
@@ -116,9 +116,7 @@ public abstract class GScene extends GNode implements Runnable {
                 }
                 GSceneViewController.surfaceHolder.unlockCanvasAndPost(canvas);
             }
-            try {
-                Thread.sleep(16);
-            } catch (Exception e) {}
+            try { Thread.sleep(16); } catch (Exception e) {}
         }
     }
 
