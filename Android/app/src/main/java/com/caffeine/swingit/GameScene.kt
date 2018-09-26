@@ -27,6 +27,7 @@ class GameScene : GScene()
     val RAIN_SPEED = 17f
     val RAIN_SIZE = GSize(2f, 20f)
     val RAIN_SIZE_SMALL = GSize(1f, 13f)
+    val THUNDERSTORM_DELAY = GInterval(1500f, 3000f)
 
     var timelapseItemGeneration = 1000L
     var timelapseCloudGenerator = 2000L
@@ -37,6 +38,7 @@ class GameScene : GScene()
     lateinit var character: Character
     lateinit var cloudGenerator: CloudGenerator
     lateinit var rainGenerator: RainGenerator
+    lateinit var thunderstorm: Thunderstorm
 
 
     override fun didInitialized()
@@ -46,7 +48,9 @@ class GameScene : GScene()
         bonusGenerator = BonusGenerator(this)
         cloudGenerator = CloudGenerator(this)
         rainGenerator = RainGenerator(this)
+        thunderstorm = Thunderstorm(this)
 
+        addChild(thunderstorm)
         addChild(terrain)
         addChild(character)
     }

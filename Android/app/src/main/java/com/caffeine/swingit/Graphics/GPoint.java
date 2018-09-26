@@ -52,4 +52,5 @@ public class GPoint {
     }
     public static GPoint add(GPoint p1, GPoint p2) { return new GPoint(p1.x+p2.x, p1.y+p2.y); }
     public static float distance(GPoint p1, GPoint p2) { return (float)Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2)); }
+    public static GPoint center(GSize size) { return new GPoint(size.width/2, size.height/2); }
 }
