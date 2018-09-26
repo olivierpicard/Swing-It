@@ -24,6 +24,9 @@ class GameScene : GScene()
     val CLOUD_SIZE = GSize(70f, 40f) // Cloud size in the background
     val CLOUD_START_NUMBER = 4 // Number of cloud on the screen at start up
     val CLOUD_PROBABILITY = 0.5f
+    val RAIN_SPEED = 17f
+    val RAIN_SIZE = GSize(2f, 20f)
+    val RAIN_SIZE_SMALL = GSize(1f, 13f)
 
     var timelapseItemGeneration = 1000L
     var timelapseCloudGenerator = 2000L
@@ -33,6 +36,7 @@ class GameScene : GScene()
     lateinit var bonusGenerator: BonusGenerator
     lateinit var character: Character
     lateinit var cloudGenerator: CloudGenerator
+    lateinit var rainGenerator: RainGenerator
 
 
     override fun didInitialized()
@@ -41,6 +45,7 @@ class GameScene : GScene()
         character = Character(this)
         bonusGenerator = BonusGenerator(this)
         cloudGenerator = CloudGenerator(this)
+        rainGenerator = RainGenerator(this)
 
         addChild(terrain)
         addChild(character)
@@ -58,6 +63,8 @@ class GameScene : GScene()
         if(gameState == GameState.PLAY) {
             bonusGenerator.update(currentTime)
             cloudGenerator.update(currentTime)
+            rainGenerator.update(currentTime)
+
             for (child: GNode in children) {
                 if (child !is IGUpdatable) continue
                 child.update(currentTime)
@@ -71,12 +78,14 @@ class GameScene : GScene()
     override fun touchSwipe(vectorIntermediate: GVector, startPos: GPoint, currentPos: GPoint)
     {
         super.touchSwipe(vectorIntermediate, startPos, currentPos)
-        character.swipeVector = vectorIntermediate
+        character.directionVector = GVector.normalize(vectorIntermediate)
     }
 
 
     override fun onAccelerometerEvent(axisValues: FloatArray) {
         super.onAccelerometerEvent(axisValues)
+        val directionVector = GVector(axisValues[1], axisValues[0])
+        character.directionVector = GVector.normalize(directionVector)
     }
 }
 

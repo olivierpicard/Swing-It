@@ -8,14 +8,14 @@ class Character(val scene: GameScene) :
         GSprite(null, Color.WHITE, scene.CHARACTER_SIZE),
         IGUpdatable, IGCollisionListener
 {
-    var swipeVector: GVector
+    var directionVector: GVector
     var isInCollision = mutableListOf<IGCollisionable>()
     var isFalling = false
     val lifebar: ProgressBar
 
     init
     {
-        swipeVector = GVector.zero()
+        directionVector = GVector.zero()
         position = GPoint(scene.size.width * scene.CHARACTER_XPOS,
                 (scene.size.height - scene.terrain.terrainHeightPixel) / 2)
 
@@ -33,7 +33,7 @@ class Character(val scene: GameScene) :
         else if(position.y + size.height < 0) isFalling = true
 
         if(!isFalling) {
-            val yDirection = GVector.normalize(swipeVector).dy
+            val yDirection = directionVector.dy
             position.y += scene.CHARACTER_SPEED * yDirection
             zRotation = if (yDirection > 0) scene.CHARACTER_ROTATION / 2 else -scene.CHARACTER_ROTATION / 2
         }
