@@ -16,11 +16,6 @@ class Bonus(val scene: GameScene, position: GPoint) :
     }
 
 
-    override fun canBeDeleted(): Boolean
-    {
-        return (position.x + size.width / 2 + 5) < 0
-    }
-
-
+    override fun canBeDeleted(): Boolean { return (position.x + size.width / 2 + 5) < 0 }
     override fun getBound(): Rect { return GTools.getRectFromSizeAndPos(position, size) }
 }

@@ -12,22 +12,27 @@ import java.util.List;
 import java.util.Map;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import java.util.logging.Handler;
 
 /**
  * Scene côté vue, qui va servir à afficher
  * et gérer les items de la scene
  */
-public abstract class GScene extends GNode implements Runnable {
+public abstract class GScene extends GNode implements Runnable
+{
     public enum TouchType {DOWN, UP, MOVE}
-    public class TouchEvent {
+
+
+    public class TouchEvent
+    {
         boolean isEdited = false;
         private TouchType touchType = null;
         private GPoint position = GPoint.zero();
         public void edit(TouchType t, GPoint pos) {isEdited = true; touchType = t; position = pos; }
     }
 
-    private class SwipeData {
+
+    private class SwipeData
+    {
         GPoint firstTouchPos = GPoint.zero();
         GPoint intermediatePos = GPoint.zero();
         GVector vectorSwipe = GVector.zero();
@@ -52,6 +57,25 @@ public abstract class GScene extends GNode implements Runnable {
         }
     }
 
+
+    class AccelerometerEvent
+    {
+        private boolean isEdited = false;
+        private float[] currentValue;
+        private float[] referenceValues;
+        float[] deltaValues = new float[3];
+
+        void edit(float[] newValues) {
+            isEdited = true;
+            currentValue = newValues;
+            if(referenceValues == null) referenceValues = currentValue.clone();
+            deltaValues[0] = referenceValues[0] - currentValue[0];
+            deltaValues[1] = referenceValues[1] - currentValue[1];
+            deltaValues[2] = referenceValues[2] - currentValue[2];
+        }
+    }
+
+
     protected int backgroundColor = Color.BLACK;
     private List<GNode> elementsToAdd;
     private List<GNode> elementsToRemove;
@@ -60,7 +84,9 @@ public abstract class GScene extends GNode implements Runnable {
     private GSize scale;
 
     public volatile boolean enable = false;
+
     public TouchEvent touchEvent;
+    public AccelerometerEvent accelerometerEvent;
     private SwipeData swipeData = new SwipeData();
     private GSize size;
 
@@ -78,11 +104,13 @@ public abstract class GScene extends GNode implements Runnable {
     protected void touchUp(@NonNull GPoint pos) { swipeData.reset(); }
     protected void touchMove(@NonNull GPoint pos) { swipeData.compute(pos);}
     protected void touchSwipe(@NonNull GVector vectorIntermediate, @NonNull GPoint startPos, @NonNull GPoint currentPos) {  }
+    protected void onAccelerometerEvent(@NonNull float[] axisValues) { }
 
 
     public void init(GSize baseSceneSize)
     {
         touchEvent = new TouchEvent();
+        accelerometerEvent = new AccelerometerEvent();
         elementsToAdd = new ArrayList<>();
         elementsToRemove = new ArrayList<>();
         collisionListeners = new ArrayList<>();
@@ -107,6 +135,7 @@ public abstract class GScene extends GNode implements Runnable {
         while(this.enable) {
             refreshSceneNodes();
             processTouch();
+            processAccelerometer();
             update(System.currentTimeMillis());
             Canvas canvas = GSceneViewController.surfaceHolder.lockCanvas();
             if (canvas != null) {
@@ -225,6 +254,14 @@ public abstract class GScene extends GNode implements Runnable {
         }
     }
 
+
+    private void processAccelerometer()
+    {
+        if(!accelerometerEvent.isEdited) return;
+        onAccelerometerEvent(accelerometerEvent.deltaValues);
+        accelerometerEvent.isEdited = false;
+    }
+
     /**
      * Organise tous les noeuds de la scène selon leur position en z
      * @param map : Key: position en Z  -  Value: Tous les élements à cette position
@@ -291,4 +328,8 @@ public abstract class GScene extends GNode implements Runnable {
      *          reCalculate on the intermediate value instead of the start position
      */
     final protected void setSwipeDirectionRefreshDistance(float d){ swipeData.refreshDistance = d; }
+
+    final protected void markAsAccelerometerReferencePosition() {
+        accelerometerEvent.referenceValues = accelerometerEvent.currentValue;
+    }
 }

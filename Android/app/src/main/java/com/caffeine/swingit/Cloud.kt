@@ -1,14 +1,12 @@
 package com.caffeine.swingit
 
 import android.graphics.Color
-import com.caffeine.swingit.Graphics.GPoint
-import com.caffeine.swingit.Graphics.GSize
-import com.caffeine.swingit.Graphics.GSprite
-import com.caffeine.swingit.Graphics.IGUpdatable
+import com.caffeine.swingit.Graphics.*
 
 class Cloud(val scene: GameScene, size: GSize, position: GPoint) :
         GSprite(null, Color.WHITE, size, position),
-        IGUpdatable
+        IGUpdatable,
+        IGDeletable
 {
     init {
         alpha = 80
@@ -20,4 +18,6 @@ class Cloud(val scene: GameScene, size: GSize, position: GPoint) :
         position.x -= scene.SPEED * 0.5f
     }
 
+
+    override fun canBeDeleted(): Boolean { return (position.x + size.width / 2 + 5) < 0 }
 }

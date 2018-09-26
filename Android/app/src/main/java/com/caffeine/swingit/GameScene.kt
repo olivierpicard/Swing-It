@@ -49,7 +49,7 @@ class GameScene : GScene()
 
     override fun start()
     {
-
+        markAsAccelerometerReferencePosition();
     }
 
 
@@ -72,6 +72,11 @@ class GameScene : GScene()
     {
         super.touchSwipe(vectorIntermediate, startPos, currentPos)
         character.swipeVector = vectorIntermediate
+    }
+
+
+    override fun onAccelerometerEvent(axisValues: FloatArray) {
+        super.onAccelerometerEvent(axisValues)
     }
 }
 

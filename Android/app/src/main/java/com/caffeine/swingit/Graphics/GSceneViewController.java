@@ -2,6 +2,9 @@ package com.caffeine.swingit.Graphics;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorManager;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -42,7 +45,9 @@ public class GSceneViewController extends SurfaceView implements SurfaceHolder.C
 
 
 
-    public void onTouch(MotionEvent ev) {
+    public void onTouch(MotionEvent ev)
+    {
+
         final GPoint pos = new GPoint(ev.getX() - (GTools.screenMetrics.widthPixels - this.scene.getSize().width),
                 ev.getY() - (GTools.screenMetrics.heightPixels - this.scene.getSize().height));
         final GPoint percent = new GPoint((ev.getX()*100)/GTools.screenMetrics.widthPixels,
@@ -61,6 +66,14 @@ public class GSceneViewController extends SurfaceView implements SurfaceHolder.C
                 break;
         }
     }
+
+
+    public void onAccelerometer(SensorEvent event)
+    {
+        scene.accelerometerEvent.edit(event.values);
+    }
+
+
 
     public GScene getScene() {
         return this.scene;
