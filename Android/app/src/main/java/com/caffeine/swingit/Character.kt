@@ -58,7 +58,7 @@ class Character(val scene: GameScene) :
     {
         if(collisionable == scene.terrain) {
             isFalling = true
-            scene.gameState = GameScene.GameState.GAME_OVER
+            scene.setFlagGameState(GameScene.GameState.GAME_OVER)
         } else {
             scene.removeChild(collisionable as GNode)
             lifebar.value += scene.BONUS_VALUE

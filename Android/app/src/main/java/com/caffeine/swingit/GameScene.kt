@@ -31,15 +31,16 @@ class GameScene : GScene()
 
     var timelapseItemGeneration = 1000L
     var timelapseCloudGenerator = 2000L
-    var gameState = GameState.WELCOME
+    private var gameState = GameState.WELCOME
+    private var isAccelerometerEnable = true
 
     lateinit var terrain: Terrain
-    lateinit var bonusGenerator: BonusGenerator
-    lateinit var character: Character
-    lateinit var cloudGenerator: CloudGenerator
-    lateinit var rainGenerator: RainGenerator
-    lateinit var thunderstorm: Thunderstorm
-    lateinit var welcomeScreen: WelcomeScreen
+    private lateinit var bonusGenerator: BonusGenerator
+    private lateinit var character: Character
+    private lateinit var cloudGenerator: CloudGenerator
+    private lateinit var rainGenerator: RainGenerator
+    private lateinit var thunderstorm: Thunderstorm
+    private lateinit var welcomeScreen: WelcomeScreen
 
 
     override fun didInitialized()
@@ -51,8 +52,7 @@ class GameScene : GScene()
         cloudGenerator = CloudGenerator(this)
         rainGenerator = RainGenerator(this)
         thunderstorm = Thunderstorm(this)
-        if(gameState == GameState.WELCOME)
-            welcomeScreen.show()
+        setFlagGameState(GameState.WELCOME)
 
         addChild(thunderstorm)
         addChild(terrain)
@@ -62,28 +62,23 @@ class GameScene : GScene()
 
     override fun start()
     {
-        markAsAccelerometerReferencePosition()
+
     }
 
 
     override fun update(currentTime: Long)
     {
-        if(gameState == GameState.WELCOME){
-            welcomeScreen.show()
-        }
-        else if(gameState == GameState.PLAY) {
-            welcomeScreen.hide()
-            character.enable = true
+        cloudGenerator.update(currentTime)
+        rainGenerator.update(currentTime)
+        if(gameState == GameState.PLAY) {
             bonusGenerator.update(currentTime)
-            cloudGenerator.update(currentTime)
-//            rainGenerator.update(currentTime)
-
-            for (child: GNode in children) {
-                if (child !is IGUpdatable) continue
-                child.update(currentTime)
-            }
         } else if(gameState == GameState.GAME_OVER) {
 
+        }
+
+        for (child: GNode in children) {
+            if (child !is IGUpdatable) continue
+            child.update(currentTime)
         }
     }
 
@@ -95,16 +90,43 @@ class GameScene : GScene()
     }
 
 
-    override fun touchUp(pos: GPoint) {
+    override fun touchUp(pos: GPoint)
+    {
         super.touchUp(pos)
+        isAccelerometerEnable = true
+        markAsAccelerometerReferencePosition()
         if(gameState == GameState.WELCOME) welcomeScreen.touchUp(pos)
     }
 
 
-    override fun onAccelerometerEvent(axisValues: FloatArray) {
+    override fun touchDown(pos: GPoint) {
+        super.touchDown(pos)
+        isAccelerometerEnable = false
+    }
+
+
+    override fun onAccelerometerEvent(axisValues: FloatArray)
+    {
         super.onAccelerometerEvent(axisValues)
+        if(!isAccelerometerEnable || gameState != GameState.PLAY) return
         val directionVector = GVector(axisValues[1], axisValues[0])
-        character.directionVector = GVector.normalize(directionVector)
+        if(directionVector.dy != 0f)
+            character.directionVector = GVector.normalize(directionVector)
+    }
+
+
+    fun setFlagGameState(gameState: GameState)
+    {
+        this.gameState = gameState
+        if(gameState == GameState.PLAY) {
+            markAsAccelerometerReferencePosition()
+            welcomeScreen.hide()
+            character.enable = true
+        } else if(gameState == GameState.WELCOME) {
+            character.enable = false
+            welcomeScreen.show()
+        }
+
     }
 }
 

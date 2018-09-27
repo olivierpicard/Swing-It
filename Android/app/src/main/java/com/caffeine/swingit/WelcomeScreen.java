@@ -3,11 +3,9 @@ package com.caffeine.swingit;
 import android.graphics.Color;
 import android.graphics.Typeface;
 
-import com.caffeine.swingit.GameScene;
 import com.caffeine.swingit.Graphics.GLabel;
 import com.caffeine.swingit.Graphics.GPoint;
 import com.caffeine.swingit.Graphics.GTools;
-import com.caffeine.swingit.R;
 
 
 /**
@@ -53,7 +51,7 @@ public class WelcomeScreen {
 
     public void touchUp(GPoint pos) {
         if(this.play_button.isClicked(pos))
-            scene.setGameState(GameScene.GameState.PLAY);
+            scene.setFlagGameState(GameScene.GameState.PLAY);
     }
 
 }
