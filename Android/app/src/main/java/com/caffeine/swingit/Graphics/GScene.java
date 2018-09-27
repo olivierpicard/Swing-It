@@ -72,7 +72,6 @@ public abstract class GScene extends GNode implements Runnable
             deltaValues[0] = referenceValues[0] - currentValue[0];
             deltaValues[1] = referenceValues[1] - currentValue[1];
             deltaValues[2] = referenceValues[2] - currentValue[2];
-            System.out.println(currentValue[0] + " --- " + referenceValues[0] + " --- " + deltaValues[0]);
         }
     }
 

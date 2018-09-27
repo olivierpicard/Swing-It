@@ -15,6 +15,7 @@ import com.caffeine.swingit.Graphics.GTools;
 
 public class Button extends GSprite {
     private GLabel label;
+    private int previousAlpha = 0;
 
 
     private void init() {
@@ -64,4 +65,18 @@ public class Button extends GSprite {
     public void setText(String text) {
         this.label.setText(text);
     }
+
+
+    @Override
+    public void setAlpha(int value) {
+        super.setAlpha(value);
+        previousAlpha = getAlpha();
+    }
+
+
+    public void hide() { super.setAlpha(0); label.setAlpha(0); }
+    public void show() { super.setAlpha(previousAlpha); label.setAlpha(255); }
+
+
+
 }

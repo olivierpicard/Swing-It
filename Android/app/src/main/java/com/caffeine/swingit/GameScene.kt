@@ -1,6 +1,16 @@
 package com.caffeine.swingit
 
+import android.graphics.Color
 import com.caffeine.swingit.Graphics.*
+import com.caffeine.swingit.Graphics.GPoint
+import com.caffeine.swingit.Graphics.GTools
+import com.caffeine.swingit.GameScene.GameState
+
+
+
+
+
+
 
 class GameScene : GScene()
 {
@@ -28,6 +38,8 @@ class GameScene : GScene()
     val RAIN_SIZE = GSize(2f, 20f)
     val RAIN_SIZE_SMALL = GSize(1f, 13f)
     val THUNDERSTORM_DELAY = GInterval(1500f, 3000f)
+    @Volatile
+    var flag_stateToSwitchTo: GameState? = null
 
     var timelapseItemGeneration = 1000L
     var timelapseCloudGenerator = 2000L
@@ -41,6 +53,8 @@ class GameScene : GScene()
     private lateinit var rainGenerator: RainGenerator
     private lateinit var thunderstorm: Thunderstorm
     private lateinit var welcomeScreen: WelcomeScreen
+    private lateinit var score_label: GLabel
+    private lateinit var gameOverScreen: GameOverScreen
 
 
     override fun didInitialized()
@@ -52,11 +66,20 @@ class GameScene : GScene()
         cloudGenerator = CloudGenerator(this)
         rainGenerator = RainGenerator(this)
         thunderstorm = Thunderstorm(this)
+        gameOverScreen = GameOverScreen(this)
+        score_label = GLabel("0")
+        score_label.fontSize = 55
+        score_label.color = Color.WHITE
+        score_label.alpha = 125
+        score_label.isHidden = false
+        score_label.position = GTools.fromSceneToScreenPos(this.size, GPoint(0.5f, 0.8f))
+        flag_stateToSwitchTo = GameState.WELCOME;
         setFlagGameState(GameState.WELCOME)
 
         addChild(thunderstorm)
         addChild(terrain)
         addChild(character)
+        addChild(score_label)
     }
 
 
@@ -72,8 +95,6 @@ class GameScene : GScene()
         rainGenerator.update(currentTime)
         if(gameState == GameState.PLAY) {
             bonusGenerator.update(currentTime)
-        } else if(gameState == GameState.GAME_OVER) {
-
         }
 
         for (child: GNode in children) {
@@ -96,6 +117,7 @@ class GameScene : GScene()
         isAccelerometerEnable = true
         markAsAccelerometerReferencePosition()
         if(gameState == GameState.WELCOME) welcomeScreen.touchUp(pos)
+        if(gameState == GameState.GAME_OVER) gameOverScreen.touchUp(pos)
     }
 
 
@@ -115,18 +137,41 @@ class GameScene : GScene()
     }
 
 
-    fun setFlagGameState(gameState: GameState)
+    fun increaseScore()
     {
-        this.gameState = gameState
-        if(gameState == GameState.PLAY) {
+        score_label.text = (score_label.text.toInt() + 1).toString()
+    }
+
+
+    fun setFlagGameState(_gameState: GameState)
+    {
+
+        println(_gameState)
+        this.gameState = _gameState
+        if(_gameState == GameState.PLAY) {
+            character?.reset()
+            score_label.text = "0"
             markAsAccelerometerReferencePosition()
+            gameOverScreen.hide()
             welcomeScreen.hide()
             character.enable = true
-        } else if(gameState == GameState.WELCOME) {
+            score_label.isHidden = false
+        } else if(_gameState == GameState.WELCOME) {
+            score_label.text = "0"
             character.enable = false
+            gameOverScreen.hide()
             welcomeScreen.show()
+            score_label.isHidden = true
+        } else if(_gameState == GameState.GAME_OVER) {
+            welcomeScreen.hide()
+            gameOverScreen.show()
         }
+    }
 
+
+    fun getGameState(): GameState
+    {
+        return gameState
     }
 }
 

@@ -17,9 +17,7 @@ class Character(val scene: GameScene) :
     init
     {
         directionVector = GVector.zero()
-        position = GPoint(scene.size.width * scene.CHARACTER_XPOS,
-                (scene.size.height - scene.terrain.terrainHeightPixel) / 2)
-
+        reset()
         lifebar = ProgressBar(scene.CHARACTER_LIFE, GSize(50f, 6f))
         lifebar.position = GPoint(0f, -size.height/2 - lifebar.size.height * 2f)
         hide()
@@ -58,10 +56,12 @@ class Character(val scene: GameScene) :
     {
         if(collisionable == scene.terrain) {
             isFalling = true
-            scene.setFlagGameState(GameScene.GameState.GAME_OVER)
+            if(scene.getGameState() != GameScene.GameState.GAME_OVER)
+                scene.setFlagGameState(GameScene.GameState.GAME_OVER)
         } else {
             scene.removeChild(collisionable as GNode)
             lifebar.value += scene.BONUS_VALUE
+            scene.increaseScore()
         }
     }
 
@@ -77,6 +77,16 @@ class Character(val scene: GameScene) :
     {
         alpha = 255
         lifebar.alpha = 255
+    }
+
+
+    fun reset()
+    {
+        directionVector = GVector.zero()
+        position = GPoint(scene.size.width * scene.CHARACTER_XPOS,
+                (scene.size.height - scene.terrain.terrainHeightPixel) / 2)
+        lifebar?.value = lifebar.maxValue.toFloat()
+        isFalling = false
     }
 
 
