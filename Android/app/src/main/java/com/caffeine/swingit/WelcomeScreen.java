@@ -16,6 +16,7 @@ public class WelcomeScreen {
     private final GameScene scene;
     private final GLabel title_label;
     private final Button play_button;
+    private final Button resume_button;
     private boolean isHidden;
 
     public WelcomeScreen(GameScene scene) {
@@ -28,10 +29,12 @@ public class WelcomeScreen {
         this.title_label.setColor(GTools.setColorOpacity(Color.WHITE, 150));
 
         this.play_button = new Button(R.string.jouer);
+        this.resume_button = new Button(R.string.experience);
 
         this.title_label.setPosition(GTools.fromSceneToScreenPos(this.scene.getSize(), new GPoint(0.5f, 0.8f)));
-
-        this.play_button.setPosition(GTools.fromSceneToScreenPos(this.scene.getSize(), new GPoint(0.5f, 0.5f)));
+        this.play_button.setPosition(GTools.fromSceneToScreenPos(this.scene.getSize(), new GPoint(0.5f, 0.6f)));
+        this.resume_button.setPosition(new GPoint(this.play_button.getPosition().x,
+                this.play_button.getPosition().y + this.play_button.getSize().height + 30));
     }
 
 
@@ -40,6 +43,7 @@ public class WelcomeScreen {
         this.isHidden = false;
         this.scene.addChild(this.title_label);
         this.scene.addChild(this.play_button);
+        this.scene.addChild(this.resume_button);
     }
 
 
@@ -48,11 +52,14 @@ public class WelcomeScreen {
         this.isHidden = true;
         this.scene.removeChild(this.title_label);
         this.scene.removeChild(this.play_button);
+        this.scene.removeChild(this.resume_button);
     }
 
     public void touchUp(GPoint pos) {
         if(this.play_button.isClicked(pos))
             scene.setFlagGameState(GameScene.GameState.PLAY);
+        else if(this.resume_button.isClicked(pos))
+            return;
     }
 
 }

@@ -34,18 +34,12 @@ public class GameOverScreen {
         this.menu_button = new Button(R.string.accueil);
         this.menu_button.setPosition(new GPoint(this.retry_button.getPosition().x,
                 this.retry_button.getPosition().y + this.retry_button.getSize().height + BUTTON_INTER_SPACE));
-//        hide();
-//        scene.addChild(retry_button);
-//        scene.addChild(menu_button);
     }
 
 
     public void hide() {
         if(isHidden) return;
         this.isHidden = true;
-//        retry_button.hide();
-//        menu_button.hide();
-//        System.out.println("hide");
         scene.removeChild(this.retry_button);
         scene.removeChild(this.menu_button);
     }
@@ -54,9 +48,6 @@ public class GameOverScreen {
     public void show() {
         if(!isHidden) return;
         this.isHidden = false;
-//        retry_button.show();
-//        menu_button.show();
-//        System.out.println("show");
         this.scene.addChild(this.retry_button);
         this.scene.addChild(this.menu_button);
     }
