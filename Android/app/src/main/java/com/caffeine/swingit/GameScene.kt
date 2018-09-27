@@ -38,8 +38,6 @@ class GameScene : GScene()
     val RAIN_SIZE = GSize(2f, 20f)
     val RAIN_SIZE_SMALL = GSize(1f, 13f)
     val THUNDERSTORM_DELAY = GInterval(1500f, 3000f)
-    @Volatile
-    var flag_stateToSwitchTo: GameState? = null
 
     var timelapseItemGeneration = 1000L
     var timelapseCloudGenerator = 2000L
@@ -73,7 +71,6 @@ class GameScene : GScene()
         score_label.alpha = 125
         score_label.isHidden = false
         score_label.position = GTools.fromSceneToScreenPos(this.size, GPoint(0.5f, 0.8f))
-        flag_stateToSwitchTo = GameState.WELCOME;
         setFlagGameState(GameState.WELCOME)
 
         addChild(thunderstorm)
@@ -117,7 +114,7 @@ class GameScene : GScene()
         isAccelerometerEnable = true
         markAsAccelerometerReferencePosition()
         if(gameState == GameState.WELCOME) welcomeScreen.touchUp(pos)
-        if(gameState == GameState.GAME_OVER) gameOverScreen.touchUp(pos)
+        else if(gameState == GameState.GAME_OVER) gameOverScreen.touchUp(pos)
     }
 
 
@@ -145,7 +142,6 @@ class GameScene : GScene()
 
     fun setFlagGameState(_gameState: GameState)
     {
-
         println(_gameState)
         this.gameState = _gameState
         if(_gameState == GameState.PLAY) {
@@ -157,6 +153,7 @@ class GameScene : GScene()
             character.enable = true
             score_label.isHidden = false
         } else if(_gameState == GameState.WELCOME) {
+            character.reset()
             score_label.text = "0"
             character.enable = false
             gameOverScreen.hide()

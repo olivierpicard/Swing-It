@@ -42,6 +42,7 @@ public class WelcomeScreen {
         this.scene.addChild(this.play_button);
     }
 
+
     public void hide() {
         if(isHidden) return;
         this.isHidden = true;
