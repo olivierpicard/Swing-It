@@ -12,6 +12,7 @@ class Character(val scene: GameScene) :
     var isInCollision = mutableListOf<IGCollisionable>()
     var isFalling = false
     val lifebar: ProgressBar
+    var enable = false
 
     init
     {
@@ -21,12 +22,17 @@ class Character(val scene: GameScene) :
 
         lifebar = ProgressBar(scene.CHARACTER_LIFE, GSize(50f, 6f))
         lifebar.position = GPoint(0f, -size.height/2 - lifebar.size.height * 2f)
+        hide()
         addChild(lifebar)
     }
 
 
     override fun update(currentTime: Long)
     {
+        if(!enable) { alpha = 0 ; lifebar.alpha = 0 ; return }
+
+        alpha = 255
+        lifebar.alpha = 255
         lifebar.value -= scene.CHARACTER_LIFE_DECREASE
 
         if(lifebar.value <= 0) isFalling = true
@@ -57,6 +63,20 @@ class Character(val scene: GameScene) :
             scene.removeChild(collisionable as GNode)
             lifebar.value += scene.BONUS_VALUE
         }
+    }
+
+
+    fun hide()
+    {
+        alpha = 0
+        lifebar.alpha = 0
+    }
+
+
+    fun show()
+    {
+        alpha = 255
+        lifebar.alpha = 255
     }
 
 

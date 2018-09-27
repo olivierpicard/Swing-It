@@ -7,7 +7,7 @@ class GameScene : GScene()
     enum class GameState{
         GAME_OVER,
         PLAY,
-        START
+        WELCOME
     }
 
     val SPEED: Float = 5f
@@ -31,7 +31,7 @@ class GameScene : GScene()
 
     var timelapseItemGeneration = 1000L
     var timelapseCloudGenerator = 2000L
-    var gameState = GameState.PLAY
+    var gameState = GameState.WELCOME
 
     lateinit var terrain: Terrain
     lateinit var bonusGenerator: BonusGenerator
@@ -39,16 +39,20 @@ class GameScene : GScene()
     lateinit var cloudGenerator: CloudGenerator
     lateinit var rainGenerator: RainGenerator
     lateinit var thunderstorm: Thunderstorm
+    lateinit var welcomeScreen: WelcomeScreen
 
 
     override fun didInitialized()
     {
+        welcomeScreen = WelcomeScreen(this)
         terrain = Terrain(this)
         character = Character(this)
         bonusGenerator = BonusGenerator(this)
         cloudGenerator = CloudGenerator(this)
         rainGenerator = RainGenerator(this)
         thunderstorm = Thunderstorm(this)
+        if(gameState == GameState.WELCOME)
+            welcomeScreen.show()
 
         addChild(thunderstorm)
         addChild(terrain)
@@ -58,16 +62,21 @@ class GameScene : GScene()
 
     override fun start()
     {
-        markAsAccelerometerReferencePosition();
+        markAsAccelerometerReferencePosition()
     }
 
 
     override fun update(currentTime: Long)
     {
-        if(gameState == GameState.PLAY) {
+        if(gameState == GameState.WELCOME){
+            welcomeScreen.show()
+        }
+        else if(gameState == GameState.PLAY) {
+            welcomeScreen.hide()
+            character.enable = true
             bonusGenerator.update(currentTime)
             cloudGenerator.update(currentTime)
-            rainGenerator.update(currentTime)
+//            rainGenerator.update(currentTime)
 
             for (child: GNode in children) {
                 if (child !is IGUpdatable) continue
@@ -83,6 +92,12 @@ class GameScene : GScene()
     {
         super.touchSwipe(vectorIntermediate, startPos, currentPos)
         character.directionVector = GVector.normalize(vectorIntermediate)
+    }
+
+
+    override fun touchUp(pos: GPoint) {
+        super.touchUp(pos)
+        if(gameState == GameState.WELCOME) welcomeScreen.touchUp(pos)
     }
 
 
