@@ -22,7 +22,7 @@ class MainActivity : GActivity(R.id.viewController, R.layout.activity_main, Game
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val conf = "cloudy"
+        val conf = "cleared"
         if(conf.equals("rainy"))
             GameScene.weather =  GameScene.Weather.Rainy
         else if(conf.equals("cloudy"))

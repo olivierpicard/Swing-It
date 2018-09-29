@@ -40,7 +40,6 @@ class GameScene : GScene()
     val CHARACTER_LIFE_DECREASE = 0.5f // character's life will be decreased each frame with this value
     val CLOUD_SIZE = GSize(140f, 100f) // Cloud size in the background
     val CLOUD_START_NUMBER = 4 // Number of cloud on the screen at start up
-    var CLOUD_MULTIPLE_PROBA = GInterval(1, 3)
     var CLOUD_PROBABILITY = 0.5f
     val RAIN_SPEED = 17f
     val RAIN_SIZE = GSize(2f, 20f)
@@ -98,7 +97,7 @@ class GameScene : GScene()
         var color: Int = Color.rgb(122, 221, 255)
         if(weather == GameScene.Weather.Cleared) {
             color = Color.rgb(122, 221, 255)
-            CLOUD_PROBABILITY = 0.1f
+            CLOUD_PROBABILITY = 0.02f
         }
         else if(weather == GameScene.Weather.Rainy) {
             color = Color.rgb(140, 157, 163)
@@ -124,8 +123,7 @@ class GameScene : GScene()
 
     override fun update(currentTime: Long)
     {
-        if(weather != Weather.Cleared)
-            cloudGenerator.update(currentTime)
+        cloudGenerator.update(currentTime)
         if(weather == Weather.Stormy || weather == Weather.Rainy)
             rainGenerator.update(currentTime)
 

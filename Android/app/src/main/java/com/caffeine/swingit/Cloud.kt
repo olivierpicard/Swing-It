@@ -4,7 +4,7 @@ import android.graphics.Color
 import com.caffeine.swingit.Graphics.*
 
 class Cloud(val scene: GameScene, size: GSize, position: GPoint) :
-        GSprite(R.drawable.cloud, Color.WHITE, size, position),
+        GSprite(R.drawable.cloud2, Color.WHITE, size, position),
         IGUpdatable,
         IGDeletable
 {
