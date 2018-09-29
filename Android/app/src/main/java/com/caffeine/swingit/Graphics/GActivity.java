@@ -100,6 +100,7 @@ public class GActivity extends AppCompatActivity
     {
         sceneViewController.onAccelerometer(event);
     }
+
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy){
 

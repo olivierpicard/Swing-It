@@ -142,7 +142,6 @@ class GameScene : GScene()
 
     fun setFlagGameState(_gameState: GameState)
     {
-        println(_gameState)
         this.gameState = _gameState
         if(_gameState == GameState.PLAY) {
             character?.reset()

@@ -6,6 +6,7 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.support.annotation.NonNull;
 
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -86,7 +87,7 @@ public abstract class GScene extends GNode implements Runnable
     public volatile boolean enable = false;
 
     public TouchEvent touchEvent;
-    public AccelerometerEvent accelerometerEvent;
+    public AccelerometerEvent accelerometerEvent = new AccelerometerEvent();
     private SwipeData swipeData = new SwipeData();
     private GSize size;
 
@@ -137,7 +138,14 @@ public abstract class GScene extends GNode implements Runnable
             processTouch();
             processAccelerometer();
             update(System.currentTimeMillis());
-            Canvas canvas = GSceneViewController.surfaceHolder.lockCanvas();
+            Canvas canvas = null;
+            try {
+                canvas = GSceneViewController.surfaceHolder.lockCanvas();
+            } catch (Exception e) {
+                System.out.println("can't lock canvas : ");
+                e.printStackTrace();
+                continue;
+            }
             if (canvas != null) {
                 synchronized (GSceneViewController.surfaceHolder) {
                     canvas.drawColor(backgroundColor, PorterDuff.Mode.CLEAR);
@@ -145,7 +153,10 @@ public abstract class GScene extends GNode implements Runnable
                 }
                 GSceneViewController.surfaceHolder.unlockCanvasAndPost(canvas);
             }
-            try { Thread.sleep(16); } catch (Exception e) {}
+            try { Thread.sleep(16); } catch (Exception e) {
+                System.out.println("can't sleep");
+                e.printStackTrace();
+            }
         }
     }
 
@@ -330,6 +341,7 @@ public abstract class GScene extends GNode implements Runnable
     final protected void setSwipeDirectionRefreshDistance(float d){ swipeData.refreshDistance = d; }
 
     final protected void markAsAccelerometerReferencePosition() {
+        if(accelerometerEvent.currentValue == null) return;
         accelerometerEvent.referenceValues = accelerometerEvent.currentValue.clone();
     }
 }

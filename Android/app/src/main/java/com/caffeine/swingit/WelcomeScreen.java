@@ -59,7 +59,7 @@ public class WelcomeScreen {
         if(this.play_button.isClicked(pos))
             scene.setFlagGameState(GameScene.GameState.PLAY);
         else if(this.resume_button.isClicked(pos))
-            return;
+            GTools.activitySwitcher.switchActivityWithResult(QRCodeActivity.class, MainActivity.QRCODE_ACTIVITY_CODE);
     }
 
 }
