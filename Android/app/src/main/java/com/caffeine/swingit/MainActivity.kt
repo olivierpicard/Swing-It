@@ -22,11 +22,21 @@ class MainActivity : GActivity(R.id.viewController, R.layout.activity_main, Game
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
     }
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        val conf = data?.extras?.getString("text")?.toLowerCase()
+        if(conf.equals("rainy"))
+            GameScene.weather =  GameScene.Weather.Rainy
+        else if(conf.equals("cloudy"))
+            GameScene.weather =  GameScene.Weather.Cloudy
+        else if(conf.equals("cleared"))
+            GameScene.weather =  GameScene.Weather.Cleared
+        else if(conf.equals("stormy"))
+            GameScene.weather =  GameScene.Weather.Stormy
     }
 }
 

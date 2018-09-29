@@ -7,17 +7,24 @@ import com.caffeine.swingit.Graphics.GTools
 import com.caffeine.swingit.GameScene.GameState
 
 
-
-
-
-
-
 class GameScene : GScene()
 {
     enum class GameState{
         GAME_OVER,
         PLAY,
         WELCOME
+    }
+
+
+    enum class Weather {
+        Rainy,
+        Cloudy,
+        Cleared,
+        Stormy
+    }
+
+    companion object {
+        var weather = Weather.Cleared
     }
 
     val SPEED: Float = 5f
@@ -53,10 +60,13 @@ class GameScene : GScene()
     private lateinit var welcomeScreen: WelcomeScreen
     private lateinit var score_label: GLabel
     private lateinit var gameOverScreen: GameOverScreen
+    private lateinit var sky: GSprite
 
 
     override fun didInitialized()
     {
+        sky = GSprite(null, skyColor(), size, GPoint(size.width / 2, size.height / 2))
+        println("size : $size")
         welcomeScreen = WelcomeScreen(this)
         terrain = Terrain(this)
         character = Character(this)
@@ -73,10 +83,26 @@ class GameScene : GScene()
         score_label.position = GTools.fromSceneToScreenPos(this.size, GPoint(0.5f, 0.8f))
         setFlagGameState(GameState.WELCOME)
 
+        addChild(sky)
         addChild(thunderstorm)
         addChild(terrain)
         addChild(character)
         addChild(score_label)
+    }
+
+
+    fun skyColor(): Int
+    {
+        var color: Int = Color.rgb(122, 221, 255)
+        if(weather == GameScene.Weather.Cleared)
+            color = Color.rgb(122, 221, 255)
+        else if(weather == GameScene.Weather.Rainy)
+            color = Color.rgb(140, 157, 163)
+        else if(weather == GameScene.Weather.Cloudy)
+            color = Color.rgb(174,212 , 226)
+        else if(weather == GameScene.Weather.Stormy)
+            color = Color.rgb(99,110 , 119)
+        return color
     }
 
 
