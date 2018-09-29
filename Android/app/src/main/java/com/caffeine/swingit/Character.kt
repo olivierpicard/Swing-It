@@ -5,7 +5,7 @@ import android.graphics.Rect
 import com.caffeine.swingit.Graphics.*
 
 class Character(val scene: GameScene) :
-        GSprite(null, Color.WHITE, scene.CHARACTER_SIZE),
+        GSprite(R.drawable.bird, Color.WHITE, scene.CHARACTER_SIZE),
         IGUpdatable, IGCollisionListener
 {
     var directionVector: GVector
@@ -44,7 +44,7 @@ class Character(val scene: GameScene) :
         else {
             lifebar.value = 0f
             // Is Falling
-            zRotation = -70f
+            zRotation = 50f
             if(position.y >= scene.terrain.terrainTopPos - size.height / 2)
                 position.y = scene.terrain.terrainTopPos - size.height / 2
             position.y += scene.CHARACTER_SPEED * 2f

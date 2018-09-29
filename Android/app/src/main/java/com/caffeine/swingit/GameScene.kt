@@ -30,7 +30,7 @@ class GameScene : GScene()
     val SPEED: Float = 5f
     val BASE_TERRAIN_HEIGHT = 0.2f // Percentage of the screen that terrain take
     val UPPER_TERRAIN_HEIGHT = 0.25f // Percentage of base terrain that the upper terrain take
-    val CHARACTER_SIZE = GSize(30f, 30f)
+    val CHARACTER_SIZE = GSize(60f, 40f)
     val CHARACTER_XPOS = 0.2f // Percentage of screenWidth where character will be put on
     val CHARACTER_SPEED = 5f // Character displacement in pixel
     val CHARACTER_ROTATION = 25f // Rotation in degrees of the character when he moves
@@ -38,7 +38,7 @@ class GameScene : GScene()
     val BONUS_VALUE = 18 // Value that bonus can get you if you take it
     val BONUS_PROBABILITY = 0.75
     val CHARACTER_LIFE_DECREASE = 0.5f // character's life will be decreased each frame with this value
-    val CLOUD_SIZE = GSize(140f, 100f) // Cloud size in the background
+    val CLOUD_SIZE = GSize(140f, 80f) // Cloud size in the background
     val CLOUD_START_NUMBER = 4 // Number of cloud on the screen at start up
     var CLOUD_PROBABILITY = 0.5f
     val RAIN_SPEED = 17f
@@ -97,19 +97,19 @@ class GameScene : GScene()
         var color: Int = Color.rgb(122, 221, 255)
         if(weather == GameScene.Weather.Cleared) {
             color = Color.rgb(122, 221, 255)
-            CLOUD_PROBABILITY = 0.02f
+            CLOUD_PROBABILITY = 0.005f
         }
         else if(weather == GameScene.Weather.Rainy) {
             color = Color.rgb(140, 157, 163)
-            CLOUD_PROBABILITY = 0.6f
+            CLOUD_PROBABILITY = 0.3f
         }
         else if(weather == GameScene.Weather.Cloudy) {
             color = Color.rgb(174, 212, 226)
-            CLOUD_PROBABILITY = 0.7f
+            CLOUD_PROBABILITY = 0.1f
         }
         else if(weather == GameScene.Weather.Stormy) {
             color = Color.rgb(99, 110, 119)
-            CLOUD_PROBABILITY = 0.8f
+            CLOUD_PROBABILITY = 0.4f
         }
         return color
     }

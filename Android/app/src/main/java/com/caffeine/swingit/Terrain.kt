@@ -22,14 +22,14 @@ class Terrain(val scene: GameScene) :
                 terrainTopPos,
                 scene.size.width,
                 scene.size.height
-        ), Color.YELLOW))
+        ), Color.rgb(109, 94, 77)))
 
         addChild(GRect(RectF(
                 0f,
                 terrainTopPos,
                 scene.size.width,
                 terrainTopPos + (terrainHeightPixel * scene.UPPER_TERRAIN_HEIGHT)
-        ), Color.GREEN))
+        ), Color.rgb(162, 183, 115)))
     }
 
     override fun getBound(): Rect
