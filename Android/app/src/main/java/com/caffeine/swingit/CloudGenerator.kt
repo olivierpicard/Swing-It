@@ -20,8 +20,8 @@ class CloudGenerator(val scene : GameScene) : IGUpdatable
 
     override fun update(currentTime: Long)
     {
-        if(currentTime - lastGenerationTime > scene.timelapseCloudGenerator) {
-            if(GInterval.random(0f, 1f) < scene.CLOUD_PROBABILITY) return
+        if (currentTime - lastGenerationTime > scene.timelapseCloudGenerator) {
+            if (GInterval.random(0f, 1f) < scene.CLOUD_PROBABILITY) return
             lastGenerationTime = currentTime
             scene.addChild(Cloud(
                     scene,

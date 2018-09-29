@@ -38,9 +38,10 @@ class GameScene : GScene()
     val BONUS_VALUE = 18 // Value that bonus can get you if you take it
     val BONUS_PROBABILITY = 0.75
     val CHARACTER_LIFE_DECREASE = 0.5f // character's life will be decreased each frame with this value
-    val CLOUD_SIZE = GSize(70f, 40f) // Cloud size in the background
+    val CLOUD_SIZE = GSize(140f, 100f) // Cloud size in the background
     val CLOUD_START_NUMBER = 4 // Number of cloud on the screen at start up
-    val CLOUD_PROBABILITY = 0.5f
+    var CLOUD_MULTIPLE_PROBA = GInterval(1, 3)
+    var CLOUD_PROBABILITY = 0.5f
     val RAIN_SPEED = 17f
     val RAIN_SIZE = GSize(2f, 20f)
     val RAIN_SIZE_SMALL = GSize(1f, 13f)
@@ -84,7 +85,8 @@ class GameScene : GScene()
         setFlagGameState(GameState.WELCOME)
 
         addChild(sky)
-        addChild(thunderstorm)
+        if(weather == Weather.Stormy)
+            addChild(thunderstorm)
         addChild(terrain)
         addChild(character)
         addChild(score_label)
@@ -94,14 +96,22 @@ class GameScene : GScene()
     fun skyColor(): Int
     {
         var color: Int = Color.rgb(122, 221, 255)
-        if(weather == GameScene.Weather.Cleared)
+        if(weather == GameScene.Weather.Cleared) {
             color = Color.rgb(122, 221, 255)
-        else if(weather == GameScene.Weather.Rainy)
+            CLOUD_PROBABILITY = 0.1f
+        }
+        else if(weather == GameScene.Weather.Rainy) {
             color = Color.rgb(140, 157, 163)
-        else if(weather == GameScene.Weather.Cloudy)
-            color = Color.rgb(174,212 , 226)
-        else if(weather == GameScene.Weather.Stormy)
-            color = Color.rgb(99,110 , 119)
+            CLOUD_PROBABILITY = 0.6f
+        }
+        else if(weather == GameScene.Weather.Cloudy) {
+            color = Color.rgb(174, 212, 226)
+            CLOUD_PROBABILITY = 0.7f
+        }
+        else if(weather == GameScene.Weather.Stormy) {
+            color = Color.rgb(99, 110, 119)
+            CLOUD_PROBABILITY = 0.8f
+        }
         return color
     }
 
@@ -114,8 +124,11 @@ class GameScene : GScene()
 
     override fun update(currentTime: Long)
     {
-        cloudGenerator.update(currentTime)
-        rainGenerator.update(currentTime)
+        if(weather != Weather.Cleared)
+            cloudGenerator.update(currentTime)
+        if(weather == Weather.Stormy || weather == Weather.Rainy)
+            rainGenerator.update(currentTime)
+
         if(gameState == GameState.PLAY) {
             bonusGenerator.update(currentTime)
         }
