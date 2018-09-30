@@ -5,6 +5,9 @@ import com.caffeine.swingit.Graphics.*
 import com.caffeine.swingit.Graphics.GPoint
 import com.caffeine.swingit.Graphics.GTools
 import com.caffeine.swingit.GameScene.GameState
+import android.icu.util.ULocale.getCountry
+
+
 
 
 class GameScene : GScene()
@@ -34,9 +37,10 @@ class GameScene : GScene()
     val CHARACTER_XPOS = 0.2f // Percentage of screenWidth where character will be put on
     val CHARACTER_SPEED = 5f // Character displacement in pixel
     val CHARACTER_ROTATION = 25f // Rotation in degrees of the character when he moves
+    val BONUS_SIZE = GSize(70f, 60f)
     val CHARACTER_LIFE = 100 // Max life that player can have
     val BONUS_VALUE = 18 // Value that bonus can get you if you take it
-    val BONUS_PROBABILITY = 0.75
+    val BONUS_PROBABILITY = 0.6f
     val CHARACTER_LIFE_DECREASE = 0.5f // character's life will be decreased each frame with this value
     val CLOUD_SIZE = GSize(140f, 80f) // Cloud size in the background
     val CLOUD_START_NUMBER = 4 // Number of cloud on the screen at start up
@@ -123,6 +127,7 @@ class GameScene : GScene()
 
     override fun update(currentTime: Long)
     {
+
         cloudGenerator.update(currentTime)
         if(weather == Weather.Stormy || weather == Weather.Rainy)
             rainGenerator.update(currentTime)

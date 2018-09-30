@@ -5,7 +5,7 @@ import android.graphics.Rect
 import com.caffeine.swingit.Graphics.*
 
 class Bonus(val scene: GameScene, position: GPoint) :
-        GSprite(null, Color.GREEN, scene.CHARACTER_SIZE, position),
+        GSprite(R.drawable.litchi, Color.GREEN, scene.BONUS_SIZE, position),
         IGUpdatable,
         IGDeletable,
         IGCollisionable

@@ -28,6 +28,7 @@ public class WelcomeScreen {
         this.title_label.setFontType(Typeface.create("Helvetica", Typeface.NORMAL));
         this.title_label.setFontSize(55);
         this.title_label.setColor(GTools.setColorOpacity(Color.WHITE, 150));
+        this.title_label.setZPosition(1);
 
         this.play_button = new Button(R.string.jouer);
         this.resume_button = new Button(R.string.experience);

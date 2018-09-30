@@ -19,6 +19,7 @@ class BonusGenerator(val scene: GameScene) : IGUpdatable
     override fun update(currentTime: Long)
     {
         if(currentTime - lastGenerationTime > scene.timelapseItemGeneration) {
+            if(GInterval.random(0f, 1f) > scene.BONUS_PROBABILITY) return
             lastGenerationTime = currentTime
             scene.addChild(Bonus(scene,
                     GPoint(scene.size.width + scene.CHARACTER_SIZE.width,
