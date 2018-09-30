@@ -17,6 +17,7 @@ public class WelcomeScreen {
     private final GLabel title_label;
     private final Button play_button;
     private final Button resume_button;
+    private final Button map_button;
     private boolean isHidden;
 
     public WelcomeScreen(GameScene scene) {
@@ -30,11 +31,14 @@ public class WelcomeScreen {
 
         this.play_button = new Button(R.string.jouer);
         this.resume_button = new Button(R.string.experience);
+        this.map_button = new Button(R.string.map);
 
         this.title_label.setPosition(GTools.fromSceneToScreenPos(this.scene.getSize(), new GPoint(0.5f, 0.8f)));
         this.play_button.setPosition(GTools.fromSceneToScreenPos(this.scene.getSize(), new GPoint(0.5f, 0.6f)));
         this.resume_button.setPosition(new GPoint(this.play_button.getPosition().x,
                 this.play_button.getPosition().y + this.play_button.getSize().height + 30));
+        this.map_button.setPosition(new GPoint(this.resume_button.getPosition().x,
+                this.resume_button.getPosition().y + this.resume_button.getSize().height + 30));
     }
 
 
@@ -44,6 +48,7 @@ public class WelcomeScreen {
         this.scene.addChild(this.title_label);
         this.scene.addChild(this.play_button);
         this.scene.addChild(this.resume_button);
+        this.scene.addChild(this.map_button);
     }
 
 
@@ -53,6 +58,7 @@ public class WelcomeScreen {
         this.scene.removeChild(this.title_label);
         this.scene.removeChild(this.play_button);
         this.scene.removeChild(this.resume_button);
+        this.scene.removeChild(this.map_button);
     }
 
     public void touchUp(GPoint pos) {
@@ -60,6 +66,8 @@ public class WelcomeScreen {
             scene.setFlagGameState(GameScene.GameState.PLAY);
         else if(this.resume_button.isClicked(pos))
             GTools.activitySwitcher.switchActivityWithResult(QRCodeActivity.class, MainActivity.QRCODE_ACTIVITY_CODE);
+        else if(this.map_button.isClicked(pos))
+            GTools.activitySwitcher.switchActivityWithResult(MapsActivity.class, MainActivity.MAP_ACTIVITY_CODE);
     }
 
 }
