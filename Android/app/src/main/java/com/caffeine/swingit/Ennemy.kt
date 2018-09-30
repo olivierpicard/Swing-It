@@ -5,7 +5,7 @@ import android.graphics.Rect
 import com.caffeine.swingit.Graphics.*
 
 class Ennemy(val scene: GameScene, position: GPoint) :
-        GSprite(R.drawable.bomb, Color.GREEN, scene.BONUS_SIZE, position),
+        GSprite(R.drawable.bomb, Color.GREEN, GameScene.BASE_SIZE, position),
         IGUpdatable,
         IGDeletable,
         IGCollisionable

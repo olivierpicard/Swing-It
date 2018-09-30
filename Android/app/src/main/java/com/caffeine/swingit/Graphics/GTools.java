@@ -1,5 +1,8 @@
 package com.caffeine.swingit.Graphics;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.graphics.RectF;
@@ -17,6 +20,7 @@ public class GTools {
     public static DisplayMetrics screenMetrics = new DisplayMetrics();
     public static Resources resources;
     public static IGActivitySwitchable activitySwitcher;
+    public static Activity activity;
 
 
     public static GSize fromSceneToScreenSize(GSize screenSize, GSize sceneSize) {
@@ -68,6 +72,22 @@ public class GTools {
             listOfRessouceID.add(resourceId);
         }
         return listOfRessouceID;
+    }
+
+
+    public static void savePref(String key, String value)
+    {
+        SharedPreferences sharedPref = activity.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString(key, value);
+        editor.apply();
+    }
+
+
+    public static String readPref(String key)
+    {
+        SharedPreferences sharedPref = activity.getPreferences(Context.MODE_PRIVATE);
+        return sharedPref.getString(key, null);
     }
 
 }

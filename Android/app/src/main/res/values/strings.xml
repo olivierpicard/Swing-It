@@ -7,4 +7,8 @@
     <string name="map">Carte</string>
     <string name="title_activity_qrcode">QRCodeReader</string>
     <string name="title_activity_maps">Map</string>
+    <string name="bonusPref">swingItBonus</string>
+    <string name="weatherPref">swingItWeather</string>
+    <string name="ennemyPref">swingItEnnemy</string>
+    <string name="filePref">swingItPref</string>
 </resources>

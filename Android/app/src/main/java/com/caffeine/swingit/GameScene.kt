@@ -27,7 +27,12 @@ class GameScene : GScene()
     }
 
     companion object {
+        const val ENNEMY_PROBABILITY = 0.005f
+        val BASE_SIZE = GSize(70f, 60f)
         var weather = Weather.Cleared
+        var ennemyProbability = ENNEMY_PROBABILITY
+        var bonusID = R.drawable.litchi
+        var bonusSize = BASE_SIZE
     }
 
     val SPEED: Float = 5f
@@ -37,7 +42,6 @@ class GameScene : GScene()
     val CHARACTER_XPOS = 0.2f // Percentage of screenWidth where character will be put on
     val CHARACTER_SPEED = 5f // Character displacement in pixel
     val CHARACTER_ROTATION = 25f // Rotation in degrees of the character when he moves
-    val BONUS_SIZE = GSize(70f, 60f)
     val CHARACTER_LIFE = 100 // Max life that player can have
     val BONUS_VALUE = 18 // Value that bonus can get you if you take it
     val BONUS_PROBABILITY = 0.6f
@@ -49,7 +53,6 @@ class GameScene : GScene()
     val RAIN_SIZE = GSize(2f, 20f)
     val RAIN_SIZE_SMALL = GSize(1f, 13f)
     val THUNDERSTORM_DELAY = GInterval(1500f, 3000f)
-    val ENNEMIES_PROBABILITY = 0.005f
 
     var timelapseItemGeneration = 1000L
     var timelapseCloudGenerator = 2000L

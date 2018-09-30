@@ -43,6 +43,7 @@ public class GActivity extends AppCompatActivity
         sensorManager = (SensorManager) getSystemService(Service.SENSOR_SERVICE);
         GTools.resources = getResources();
         GTools.activitySwitcher = this;
+        GTools.activity = this;
 
         // Récupération de la taille de l'écran et la stock dans GTools
         this.getWindowManager().getDefaultDisplay().getMetrics(GTools.screenMetrics);

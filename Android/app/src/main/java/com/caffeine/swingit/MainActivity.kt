@@ -26,6 +26,8 @@ import android.support.annotation.NonNull
 import android.telephony.TelephonyManager
 import android.util.Log
 import android.widget.Toast
+import com.caffeine.swingit.Graphics.GSize
+import com.caffeine.swingit.Graphics.GTools
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.gms.location.LocationServices
@@ -44,16 +46,12 @@ class MainActivity : GActivity(R.id.viewController, R.layout.activity_main, Game
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
+        decryptString(GTools.readPref(R.string.bonusPref.toString()))
+        decryptString(GTools.readPref(R.string.ennemyPref.toString()))
+        decryptString(GTools.readPref(R.string.weatherPref.toString()))
+//        val conf = "stormy"
+//        decryptString(conf)
 
-        val conf = "cleared"
-        if(conf.equals("rainy"))
-            GameScene.weather =  GameScene.Weather.Rainy
-        else if(conf.equals("cloudy"))
-            GameScene.weather =  GameScene.Weather.Cloudy
-        else if(conf.equals("cleared"))
-            GameScene.weather =  GameScene.Weather.Cleared
-        else if(conf.equals("stormy"))
-            GameScene.weather =  GameScene.Weather.Stormy
     }
 
 
@@ -61,14 +59,59 @@ class MainActivity : GActivity(R.id.viewController, R.layout.activity_main, Game
     {
         super.onActivityResult(requestCode, resultCode, data)
         val conf = data?.extras?.getString("text")?.toLowerCase()
-        if(conf.equals("rainy"))
-            GameScene.weather =  GameScene.Weather.Rainy
-        else if(conf.equals("cloudy"))
-            GameScene.weather =  GameScene.Weather.Cloudy
-        else if(conf.equals("cleared"))
-            GameScene.weather =  GameScene.Weather.Cleared
-        else if(conf.equals("stormy"))
-            GameScene.weather =  GameScene.Weather.Stormy
+        conf?.let { decryptString(it) }
+    }
+
+
+
+    fun decryptString(conf: String?)
+    {
+        if(conf == null) return
+
+        if(conf.equals("rainy")) {
+            GameScene.weather = GameScene.Weather.Rainy
+            GTools.savePref(R.string.weatherPref.toString(), conf)
+        }
+        else if(conf.equals("cloudy")) {
+            GameScene.weather = GameScene.Weather.Cloudy
+            GTools.savePref(R.string.weatherPref.toString(), conf)
+        }
+        else if(conf.equals("cleared")) {
+            GameScene.weather = GameScene.Weather.Cleared
+            GTools.savePref(R.string.weatherPref.toString(), conf)
+        }
+        else if(conf.equals("stormy")) {
+            GameScene.weather = GameScene.Weather.Stormy
+            GTools.savePref(R.string.weatherPref.toString(), conf)
+        }
+        else if(conf.equals("nobombs")) {
+            GameScene.ennemyProbability = 0f
+            GTools.savePref(R.string.ennemyPref.toString(), conf)
+        }
+        else if(conf.equals("bombs")) {
+            GameScene.ennemyProbability = GameScene.ENNEMY_PROBABILITY
+            GTools.savePref(R.string.ennemyPref.toString(), conf)
+        }
+        else if(conf.equals("bread")) {
+            GameScene.bonusID = R.drawable.bread
+            GameScene.bonusSize = GSize(60f, 30f)
+            GTools.savePref(R.string.bonusPref.toString(), conf)
+        }
+        else if(conf.equals("hamburger")) {
+            GameScene.bonusID = R.drawable.hamburger
+            GameScene.bonusSize = GSize(55f, 55f)
+            GTools.savePref(R.string.bonusPref.toString(), conf)
+        }
+        else if(conf.equals("litchi")) {
+            GameScene.bonusID = R.drawable.litchi
+            GameScene.bonusSize = GameScene.BASE_SIZE
+            GTools.savePref(R.string.bonusPref.toString(), conf)
+        }
+        else if(conf.equals("pork")) {
+            GameScene.bonusID = R.drawable.pork
+            GameScene.bonusSize = GSize(60f, 50f)
+            GTools.savePref(R.string.bonusPref.toString(), conf)
+        }
     }
 
 

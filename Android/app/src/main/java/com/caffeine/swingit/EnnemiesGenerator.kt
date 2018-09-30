@@ -19,7 +19,7 @@ class EnnemiesGenerator(val scene: GameScene) : IGUpdatable
     override fun update(currentTime: Long)
     {
         if(currentTime - lastGenerationTime > scene.timelapseItemGeneration) {
-            if(GInterval.random(0f, 1f) > scene.ENNEMIES_PROBABILITY) return
+            if(GInterval.random(0f, 1f) > GameScene.ennemyProbability) return
             lastGenerationTime = currentTime
             scene.addChild(Ennemy(scene,
                     GPoint(scene.size.width + scene.CHARACTER_SIZE.width,
