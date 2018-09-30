@@ -49,6 +49,7 @@ class GameScene : GScene()
     val RAIN_SIZE = GSize(2f, 20f)
     val RAIN_SIZE_SMALL = GSize(1f, 13f)
     val THUNDERSTORM_DELAY = GInterval(1500f, 3000f)
+    val ENNEMIES_PROBABILITY = 0.005f
 
     var timelapseItemGeneration = 1000L
     var timelapseCloudGenerator = 2000L
@@ -65,6 +66,7 @@ class GameScene : GScene()
     private lateinit var score_label: GLabel
     private lateinit var gameOverScreen: GameOverScreen
     private lateinit var sky: GSprite
+    private lateinit var ennemiesGenerator: EnnemiesGenerator
 
 
     override fun didInitialized()
@@ -79,6 +81,7 @@ class GameScene : GScene()
         rainGenerator = RainGenerator(this)
         thunderstorm = Thunderstorm(this)
         gameOverScreen = GameOverScreen(this)
+        ennemiesGenerator = EnnemiesGenerator(this)
         score_label = GLabel("0")
         score_label.fontSize = 55
         score_label.color = Color.WHITE
@@ -134,6 +137,7 @@ class GameScene : GScene()
 
         if(gameState == GameState.PLAY) {
             bonusGenerator.update(currentTime)
+            ennemiesGenerator.update(currentTime)
         }
 
         for (child: GNode in children) {
