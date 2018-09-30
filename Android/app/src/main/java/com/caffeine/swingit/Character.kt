@@ -55,7 +55,7 @@ class Character(val scene: GameScene) :
     override fun collisionEnter(collisionable: IGCollisionable)
     {
         if(collisionable == scene.terrain || collisionable is Ennemy) {
-            if(collisionable is Ennemy) scene.removeChild(collisionable)
+            if(collisionable is Ennemy) { scene.removeChild(collisionable) ; scene.MUSIC_BOMB.start() }
             isFalling = true
             if(scene.getGameState() != GameScene.GameState.GAME_OVER)
                 scene.setFlagGameState(GameScene.GameState.GAME_OVER)
@@ -63,6 +63,7 @@ class Character(val scene: GameScene) :
             scene.removeChild(collisionable as GNode)
             lifebar.value += scene.BONUS_VALUE
             scene.increaseScore()
+            scene.MUSIC_CATCH.start()
         }
     }
 

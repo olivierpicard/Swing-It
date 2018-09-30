@@ -6,6 +6,10 @@ import com.caffeine.swingit.Graphics.GPoint
 import com.caffeine.swingit.Graphics.GTools
 import com.caffeine.swingit.GameScene.GameState
 import android.icu.util.ULocale.getCountry
+import android.R.raw
+import android.media.MediaPlayer
+
+
 
 
 
@@ -15,7 +19,8 @@ class GameScene : GScene()
     enum class GameState{
         GAME_OVER,
         PLAY,
-        WELCOME
+        WELCOME,
+        NOT_INIT
     }
 
 
@@ -53,10 +58,13 @@ class GameScene : GScene()
     val RAIN_SIZE = GSize(2f, 20f)
     val RAIN_SIZE_SMALL = GSize(1f, 13f)
     val THUNDERSTORM_DELAY = GInterval(1500f, 3000f)
+    val MUSIC_GAMEOVER= MediaPlayer.create(GTools.activity, R.raw.gameover)
+    val MUSIC_CATCH = MediaPlayer.create(GTools.activity, R.raw.taken)
+    val MUSIC_BOMB = MediaPlayer.create(GTools.activity, R.raw.bomb)
 
     var timelapseItemGeneration = 1000L
     var timelapseCloudGenerator = 2000L
-    private var gameState = GameState.WELCOME
+    private var gameState = GameState.NOT_INIT
     private var isAccelerometerEnable = true
 
     lateinit var terrain: Terrain
@@ -191,7 +199,9 @@ class GameScene : GScene()
 
     fun setFlagGameState(_gameState: GameState)
     {
-        this.gameState = _gameState
+
+        if(gameState != GameState.NOT_INIT && gameState == _gameState) return
+        gameState = _gameState
         if(_gameState == GameState.PLAY) {
             character?.reset()
             score_label.text = "0"
@@ -208,6 +218,7 @@ class GameScene : GScene()
             welcomeScreen.show()
             score_label.isHidden = true
         } else if(_gameState == GameState.GAME_OVER) {
+            MUSIC_GAMEOVER.start()
             welcomeScreen.hide()
             gameOverScreen.show()
         }
