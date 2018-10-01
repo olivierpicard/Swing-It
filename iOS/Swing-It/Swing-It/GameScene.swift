@@ -64,6 +64,7 @@ class GameScene: SKScene
     private var ennemiesGenerator: EnnemiesGenerator!
     private var rainGenerator: RainGenerator!
     private var thunderstorm: Thunderstorm!
+    private var character: Bird!
     var terrain: Terrain!
     
     
@@ -75,7 +76,9 @@ class GameScene: SKScene
         ennemiesGenerator = EnnemiesGenerator(scene: self)
         rainGenerator = RainGenerator(scene: self)
         thunderstorm = Thunderstorm(scene: self)
+        character = Bird(scene: self)
         
+        addChild(character)
         addChild(thunderstorm)
     }
     

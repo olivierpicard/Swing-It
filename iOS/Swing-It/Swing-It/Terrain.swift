@@ -11,8 +11,8 @@ import SpriteKit
 
 class Terrain {
     private let scene: SKScene!
-    private let TERRAIN_BOTTOM_LAYER_HEIGHT: CGFloat = 0.2
-    private let TERRAIN_TOP_LAYER_HEIGHT:  CGFloat = 0.2
+    let TERRAIN_BOTTOM_LAYER_HEIGHT: CGFloat = 0.2
+    let TERRAIN_TOP_LAYER_HEIGHT:  CGFloat = 0.2
     let TERRAIN_POSITION: CGFloat
     
     init(_ scene: SKScene) {

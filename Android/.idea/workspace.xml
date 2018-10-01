@@ -10,11 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cb4c6c8-ec60-4918-8826-8df4eae27d26" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Thunderstorm.swift" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Chacracter.swift" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It.xcodeproj/project.pbxproj" />
       <change beforePath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It.xcodeproj/project.xcworkspace/xcuserdata/olivierpicard.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It.xcodeproj/project.xcworkspace/xcuserdata/olivierpicard.xcuserdatad/UserInterfaceState.xcuserstate" />
-      <change beforePath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Actions.sks" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -53,11 +52,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Thunderstorm.kt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/Thunderstorm.kt">
+      <file leaf-file-name="GameScene.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/GameScene.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="49" column="9" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="49" selection-end-column="9" />
+            <state relative-caret-position="-371">
+              <caret line="46" column="18" lean-forward="true" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -2276,9 +2275,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/Graphics/GActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/MainActivity.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/Character.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/GameScene.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/CloudGenerator.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/Character.kt" />
       </list>
     </option>
   </component>
@@ -2811,6 +2810,7 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24177396" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37122127" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32769045" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2826,7 +2826,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32769045" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -3140,14 +3139,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/Character.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-282">
-          <caret line="57" column="42" lean-forward="false" selection-start-line="57" selection-start-column="42" selection-end-line="57" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/MainActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
@@ -3160,14 +3151,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/GameScene.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="18" column="4" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="23" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -3208,6 +3191,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="705">
           <caret line="49" column="9" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="49" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/Character.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1126">
+          <caret line="88" column="75" lean-forward="true" selection-start-line="87" selection-start-column="8" selection-end-line="88" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/GameScene.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-371">
+          <caret line="46" column="18" lean-forward="true" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
           <folding />
         </state>
       </provider>
