@@ -63,6 +63,7 @@ class GameScene: SKScene
     private var bonusGenerator: BonusGenerator!
     private var ennemiesGenerator: EnnemiesGenerator!
     private var rainGenerator: RainGenerator!
+    private var thunderstorm: Thunderstorm!
     var terrain: Terrain!
     
     
@@ -73,6 +74,9 @@ class GameScene: SKScene
         cloudGenerator = CloudGenerator(scene: self)
         ennemiesGenerator = EnnemiesGenerator(scene: self)
         rainGenerator = RainGenerator(scene: self)
+        thunderstorm = Thunderstorm(scene: self)
+        
+        addChild(thunderstorm)
     }
     
     
@@ -104,6 +108,7 @@ class GameScene: SKScene
         cloudGenerator.update(currentTime)
         ennemiesGenerator.update(currentTime)
         rainGenerator.update(currentTime)
+        thunderstorm.update(currentTime)
         
         for child in children {
             if (child as? IDeletable)?.canBeDeleted() ?? false { removeChildren(in: [child]); continue }

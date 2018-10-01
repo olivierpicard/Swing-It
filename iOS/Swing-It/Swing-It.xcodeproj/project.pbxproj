@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8107F8772161848B00D7CD24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8107F8762161848B00D7CD24 /* AppDelegate.swift */; };
 		8107F8792161848B00D7CD24 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8107F8782161848B00D7CD24 /* GameScene.sks */; };
-		8107F87B2161848B00D7CD24 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8107F87A2161848B00D7CD24 /* Actions.sks */; };
 		8107F87D2161848B00D7CD24 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8107F87C2161848B00D7CD24 /* GameScene.swift */; };
 		8107F87F2161848B00D7CD24 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8107F87E2161848B00D7CD24 /* GameViewController.swift */; };
 		8107F8822161848B00D7CD24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8107F8802161848B00D7CD24 /* Main.storyboard */; };
@@ -26,13 +25,13 @@
 		81E8883C2162825000E1D458 /* Ennemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E8883B2162825000E1D458 /* Ennemy.swift */; };
 		81E8883E2162846B00E1D458 /* Rain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E8883D2162846B00E1D458 /* Rain.swift */; };
 		81E888402162847800E1D458 /* RainGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E8883F2162847800E1D458 /* RainGenerator.swift */; };
+		81E8884221628B5700E1D458 /* Thunderstorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E8884121628B5700E1D458 /* Thunderstorm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8107F8732161848B00D7CD24 /* Swing-It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swing-It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8107F8762161848B00D7CD24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8107F8782161848B00D7CD24 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		8107F87A2161848B00D7CD24 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		8107F87C2161848B00D7CD24 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		8107F87E2161848B00D7CD24 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		8107F8812161848B00D7CD24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -50,6 +49,7 @@
 		81E8883B2162825000E1D458 /* Ennemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ennemy.swift; sourceTree = "<group>"; };
 		81E8883D2162846B00E1D458 /* Rain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rain.swift; sourceTree = "<group>"; };
 		81E8883F2162847800E1D458 /* RainGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainGenerator.swift; sourceTree = "<group>"; };
+		81E8884121628B5700E1D458 /* Thunderstorm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thunderstorm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +84,6 @@
 			children = (
 				8107F8762161848B00D7CD24 /* AppDelegate.swift */,
 				8107F8782161848B00D7CD24 /* GameScene.sks */,
-				8107F87A2161848B00D7CD24 /* Actions.sks */,
 				8107F87C2161848B00D7CD24 /* GameScene.swift */,
 				8107F87E2161848B00D7CD24 /* GameViewController.swift */,
 				8107F8802161848B00D7CD24 /* Main.storyboard */,
@@ -102,6 +101,7 @@
 				81E8883B2162825000E1D458 /* Ennemy.swift */,
 				81E8883D2162846B00E1D458 /* Rain.swift */,
 				81E8883F2162847800E1D458 /* RainGenerator.swift */,
+				81E8884121628B5700E1D458 /* Thunderstorm.swift */,
 			);
 			path = "Swing-It";
 			sourceTree = "<group>";
@@ -168,7 +168,6 @@
 				8107F8792161848B00D7CD24 /* GameScene.sks in Resources */,
 				8107F8842161849000D7CD24 /* Assets.xcassets in Resources */,
 				8107F8872161849000D7CD24 /* LaunchScreen.storyboard in Resources */,
-				8107F87B2161848B00D7CD24 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +191,7 @@
 				8107F8772161848B00D7CD24 /* AppDelegate.swift in Sources */,
 				81E888342162649100E1D458 /* IDeletable.swift in Sources */,
 				81E888322162637F00E1D458 /* IUpdatable.swift in Sources */,
+				81E8884221628B5700E1D458 /* Thunderstorm.swift in Sources */,
 				81E888402162847800E1D458 /* RainGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
