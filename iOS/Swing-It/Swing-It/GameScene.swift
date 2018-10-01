@@ -27,11 +27,12 @@ class GameScene: SKScene
     
     
     static let ENNEMY_PROBABILITY: CGFloat = 0.005
-    static let BASE_SIZE = CGSize.init(width: 70.0, height: 60.0)
+    static let BASE_SIZE = CGSize(width: 60.0, height: 50.0)
     static var weather = Weather.Cleared
     static var ennemyProbability = ENNEMY_PROBABILITY
     static var bonusSize = BASE_SIZE
     static var cloudImageTexture = "cloud2"
+    static var bonusImageTexture = "litchi"
     
     
     let SPEED: CGFloat = 5
@@ -54,17 +55,19 @@ class GameScene: SKScene
     let THUNDERSTORM_DELAY = 1.5...3.0
     
     var timelapseItemGeneration: TimeInterval = 1
-    var timelapseCloudGenerator: TimeInterval = 2
+    var timelapseCloudGenerator: TimeInterval = 1
     private var gameState = GameState.NOT_INIT
     private var isAccelerometerEnable = true
     
     private var sky: SKSpriteNode!
     private var cloudGenerator: CloudGenerator!
     var terrain: Terrain!
+    var bonusGenerator: BonusGenerator!
     
     
     override func didMove(to view: SKView) {
         terrain = Terrain.init(self)
+        bonusGenerator = BonusGenerator(scene: self)
         cloudGenerator = CloudGenerator(scene: self)
         
         sky = SKSpriteNode(color: skyColor(), size: size)
@@ -99,6 +102,7 @@ class GameScene: SKScene
     
     
     override func update(_ currentTime: TimeInterval) {
+        bonusGenerator.update(currentTime)
         cloudGenerator.update(currentTime)
         for child in children {
             if (child as? IDeletable)?.canBeDeleted() ?? false { removeChildren(in: [child]); continue }

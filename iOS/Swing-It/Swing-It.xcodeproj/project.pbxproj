@@ -20,6 +20,8 @@
 		81E8883021625D4900E1D458 /* CloudGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E8882F21625D4900E1D458 /* CloudGenerator.swift */; };
 		81E888322162637F00E1D458 /* IUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E888312162637F00E1D458 /* IUpdatable.swift */; };
 		81E888342162649100E1D458 /* IDeletable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E888332162649100E1D458 /* IDeletable.swift */; };
+		81E8883621627C1100E1D458 /* BonusGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E8883521627C1100E1D458 /* BonusGenerator.swift */; };
+		81E8883821627C1B00E1D458 /* Bonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E8883721627C1B00E1D458 /* Bonus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		81E8882F21625D4900E1D458 /* CloudGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudGenerator.swift; sourceTree = "<group>"; };
 		81E888312162637F00E1D458 /* IUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IUpdatable.swift; sourceTree = "<group>"; };
 		81E888332162649100E1D458 /* IDeletable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDeletable.swift; sourceTree = "<group>"; };
+		81E8883521627C1100E1D458 /* BonusGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusGenerator.swift; sourceTree = "<group>"; };
+		81E8883721627C1B00E1D458 /* Bonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bonus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,8 @@
 				81E8882F21625D4900E1D458 /* CloudGenerator.swift */,
 				81E888312162637F00E1D458 /* IUpdatable.swift */,
 				81E888332162649100E1D458 /* IDeletable.swift */,
+				81E8883521627C1100E1D458 /* BonusGenerator.swift */,
+				81E8883721627C1B00E1D458 /* Bonus.swift */,
 			);
 			path = "Swing-It";
 			sourceTree = "<group>";
@@ -162,10 +168,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				81E8882E21625D3C00E1D458 /* Cloud.swift in Sources */,
+				81E8883821627C1B00E1D458 /* Bonus.swift in Sources */,
 				81E8883021625D4900E1D458 /* CloudGenerator.swift in Sources */,
 				8107F87D2161848B00D7CD24 /* GameScene.swift in Sources */,
 				8107F88F2161881100D7CD24 /* Terrain.swift in Sources */,
 				8107F87F2161848B00D7CD24 /* GameViewController.swift in Sources */,
+				81E8883621627C1100E1D458 /* BonusGenerator.swift in Sources */,
 				8107F8772161848B00D7CD24 /* AppDelegate.swift in Sources */,
 				81E888342162649100E1D458 /* IDeletable.swift in Sources */,
 				81E888322162637F00E1D458 /* IUpdatable.swift in Sources */,

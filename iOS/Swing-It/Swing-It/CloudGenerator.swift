@@ -35,7 +35,6 @@ class CloudGenerator : IUpdatable
     
     func update(_ currentTime: TimeInterval)
     {
-        print("\(currentTime) --- \(lastGenerationTime) --- \(scene.timelapseCloudGenerator)")
         if (currentTime - lastGenerationTime > scene.timelapseCloudGenerator) {
             if (CGFloat.random(in: 0...1) > scene.CLOUD_PROBABILITY) { return }
             lastGenerationTime = currentTime

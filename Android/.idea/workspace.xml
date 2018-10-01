@@ -10,44 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cb4c6c8-ec60-4918-8826-8df4eae27d26" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Assets.xcassets/bird.imageset/Contents.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Assets.xcassets/bird.imageset/bird.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Assets.xcassets/bomb.imageset/Contents.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Assets.xcassets/bomb.imageset/bomb.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Assets.xcassets/bread.imageset/Contents.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Assets.xcassets/bread.imageset/bread.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Assets.xcassets/cloud.imageset/Contents.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Assets.xcassets/cloud.imageset/cloud.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Assets.xcassets/cloud2.imageset/Contents.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Assets.xcassets/cloud2.imageset/cloud2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Assets.xcassets/hamburger.imageset/Contents.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Assets.xcassets/hamburger.imageset/hamburger.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Assets.xcassets/litchi.imageset/Contents.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Assets.xcassets/litchi.imageset/litchi.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Assets.xcassets/pork.imageset/Contents.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Assets.xcassets/pork.imageset/pork.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Cloud.swift" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/CloudGenerator.swift" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/IDeletable.swift" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/IUpdatable.swift" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/../iOS/Smooth/Smooth.xcodeproj/project.pbxproj" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../iOS/Smooth/Smooth.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../iOS/Smooth/Smooth.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../iOS/Smooth/Smooth.xcodeproj/project.xcworkspace/xcuserdata/olivierpicard.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../iOS/Smooth/Smooth.xcodeproj/xcuserdata/olivierpicard.xcuserdatad/xcschemes/xcschememanagement.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../iOS/Smooth/Smooth/Actions.sks" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../iOS/Smooth/Smooth/AppDelegate.swift" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../iOS/Smooth/Smooth/Assets.xcassets/AppIcon.appiconset/Contents.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../iOS/Smooth/Smooth/Assets.xcassets/Contents.json" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Assets.xcassets/Contents.json" />
-      <change beforePath="$PROJECT_DIR$/../iOS/Smooth/Smooth/Base.lproj/LaunchScreen.storyboard" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../iOS/Smooth/Smooth/Base.lproj/Main.storyboard" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../iOS/Smooth/Smooth/GameScene.sks" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../iOS/Smooth/Smooth/GameScene.swift" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../iOS/Smooth/Smooth/GameViewController.swift" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../iOS/Smooth/Smooth/Info.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../iOS/Smooth/Smooth/TerrainGenerator.swift" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../iOS/Smooth/Smooth/TerrainSegment.swift" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It.xcodeproj/project.xcworkspace/xcuserdata/olivierpicard.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It.xcodeproj/project.xcworkspace/xcuserdata/olivierpicard.xcuserdatad/UserInterfaceState.xcuserstate" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
