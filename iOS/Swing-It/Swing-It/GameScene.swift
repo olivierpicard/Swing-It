@@ -49,7 +49,7 @@ class GameScene: SKScene
     let CLOUD_SIZE = CGSize(width: 140, height: 80) // Cloud size in the background
     let CLOUD_START_NUMBER: CGFloat = 4 // Number of cloud on the screen at start up
     var CLOUD_PROBABILITY: CGFloat = 0.5
-    let RAIN_SPEED = 17
+    let RAIN_SPEED: CGFloat = 17
     let RAIN_SIZE = CGSize(width: 2, height: 20)
     let RAIN_SIZE_SMALL = CGSize(width: 1, height: 13)
     let THUNDERSTORM_DELAY = 1.5...3.0
@@ -59,24 +59,20 @@ class GameScene: SKScene
     private var gameState = GameState.NOT_INIT
     private var isAccelerometerEnable = true
     
-    private var sky: SKSpriteNode!
     private var cloudGenerator: CloudGenerator!
     private var bonusGenerator: BonusGenerator!
     private var ennemiesGenerator: EnnemiesGenerator!
+    private var rainGenerator: RainGenerator!
     var terrain: Terrain!
     
     
     override func didMove(to view: SKView) {
+        backgroundColor = skyColor()
         terrain = Terrain.init(self)
         bonusGenerator = BonusGenerator(scene: self)
         cloudGenerator = CloudGenerator(scene: self)
         ennemiesGenerator = EnnemiesGenerator(scene: self)
-        
-        sky = SKSpriteNode(color: skyColor(), size: size)
-        sky.position = CGPoint(x: frame.midX, y: frame.midY)
-        sky.zPosition = -1
-        
-        addChild(sky)
+        rainGenerator = RainGenerator(scene: self)
     }
     
     
@@ -107,6 +103,7 @@ class GameScene: SKScene
         bonusGenerator.update(currentTime)
         cloudGenerator.update(currentTime)
         ennemiesGenerator.update(currentTime)
+        rainGenerator.update(currentTime)
         
         for child in children {
             if (child as? IDeletable)?.canBeDeleted() ?? false { removeChildren(in: [child]); continue }
