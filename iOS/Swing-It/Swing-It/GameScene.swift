@@ -61,14 +61,16 @@ class GameScene: SKScene
     
     private var sky: SKSpriteNode!
     private var cloudGenerator: CloudGenerator!
+    private var bonusGenerator: BonusGenerator!
+    private var ennemiesGenerator: EnnemiesGenerator!
     var terrain: Terrain!
-    var bonusGenerator: BonusGenerator!
     
     
     override func didMove(to view: SKView) {
         terrain = Terrain.init(self)
         bonusGenerator = BonusGenerator(scene: self)
         cloudGenerator = CloudGenerator(scene: self)
+        ennemiesGenerator = EnnemiesGenerator(scene: self)
         
         sky = SKSpriteNode(color: skyColor(), size: size)
         sky.position = CGPoint(x: frame.midX, y: frame.midY)
@@ -104,6 +106,8 @@ class GameScene: SKScene
     override func update(_ currentTime: TimeInterval) {
         bonusGenerator.update(currentTime)
         cloudGenerator.update(currentTime)
+        ennemiesGenerator.update(currentTime)
+        
         for child in children {
             if (child as? IDeletable)?.canBeDeleted() ?? false { removeChildren(in: [child]); continue }
             (child as? IUpdatable)?.update(currentTime)
