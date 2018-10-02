@@ -56,6 +56,7 @@ class GameScene: SKScene
     
     var timelapseItemGeneration: TimeInterval = 1
     var timelapseCloudGenerator: TimeInterval = 1
+    private var swipeController: SwipeController!
     private var gameState = GameState.NOT_INIT
     private var isAccelerometerEnable = true
     
@@ -70,6 +71,7 @@ class GameScene: SKScene
     
     override func didMove(to view: SKView) {
         backgroundColor = skyColor()
+        swipeController = SwipeController(callback: swipe)
         terrain = Terrain.init(self)
         bonusGenerator = BonusGenerator(scene: self)
         cloudGenerator = CloudGenerator(scene: self)
@@ -120,30 +122,36 @@ class GameScene: SKScene
     }
     
     
+    func swipe(vectorIntermediate: CGVector, startPos: CGPoint, currentPos: CGPoint) {
+        print("swipe : \(vectorIntermediate)")
+    }
+    
+    
     func touchDown(atPoint pos : CGPoint) {
-        
+        swipeController.start(pos: pos)
     }
     
     func touchMoved(toPoint pos : CGPoint) {
-        
+        swipeController.compute(newPos: pos)
     }
     
     func touchUp(atPoint pos : CGPoint) {
-        
+        swipeController.reset()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
-    
+
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        self.touchMoved(toPoint: touches.first!.location(in: self))
         for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
     }
-    
+
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
-    
+
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }

@@ -27,7 +27,8 @@
 		81E888402162847800E1D458 /* RainGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E8883F2162847800E1D458 /* RainGenerator.swift */; };
 		81E8884221628B5700E1D458 /* Thunderstorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E8884121628B5700E1D458 /* Thunderstorm.swift */; };
 		81E888442162AD7400E1D458 /* Bird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E888432162AD7400E1D458 /* Bird.swift */; };
-		81E888462162B61F00E1D458 /* SwipeGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E888452162B61F00E1D458 /* SwipeGesture.swift */; };
+		81E888462162B61F00E1D458 /* SwipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E888452162B61F00E1D458 /* SwipeController.swift */; };
+		81E888482162BBE500E1D458 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E888472162BBE500E1D458 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +54,8 @@
 		81E8883F2162847800E1D458 /* RainGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainGenerator.swift; sourceTree = "<group>"; };
 		81E8884121628B5700E1D458 /* Thunderstorm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thunderstorm.swift; sourceTree = "<group>"; };
 		81E888432162AD7400E1D458 /* Bird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bird.swift; sourceTree = "<group>"; };
-		81E888452162B61F00E1D458 /* SwipeGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeGesture.swift; sourceTree = "<group>"; };
+		81E888452162B61F00E1D458 /* SwipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeController.swift; sourceTree = "<group>"; };
+		81E888472162BBE500E1D458 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +109,8 @@
 				81E8883F2162847800E1D458 /* RainGenerator.swift */,
 				81E8884121628B5700E1D458 /* Thunderstorm.swift */,
 				81E888432162AD7400E1D458 /* Bird.swift */,
-				81E888452162B61F00E1D458 /* SwipeGesture.swift */,
+				81E888452162B61F00E1D458 /* SwipeController.swift */,
+				81E888472162BBE500E1D458 /* Extension.swift */,
 			);
 			path = "Swing-It";
 			sourceTree = "<group>";
@@ -186,13 +189,14 @@
 			files = (
 				81E8882E21625D3C00E1D458 /* Cloud.swift in Sources */,
 				81E8883821627C1B00E1D458 /* Bonus.swift in Sources */,
-				81E888462162B61F00E1D458 /* SwipeGesture.swift in Sources */,
+				81E888462162B61F00E1D458 /* SwipeController.swift in Sources */,
 				81E8883021625D4900E1D458 /* CloudGenerator.swift in Sources */,
 				81E8883C2162825000E1D458 /* Ennemy.swift in Sources */,
 				8107F87D2161848B00D7CD24 /* GameScene.swift in Sources */,
 				81E8883E2162846B00E1D458 /* Rain.swift in Sources */,
 				8107F88F2161881100D7CD24 /* Terrain.swift in Sources */,
 				8107F87F2161848B00D7CD24 /* GameViewController.swift in Sources */,
+				81E888482162BBE500E1D458 /* Extension.swift in Sources */,
 				81E8883A2162824600E1D458 /* EnnemiesGenerator.swift in Sources */,
 				81E8883621627C1100E1D458 /* BonusGenerator.swift in Sources */,
 				8107F8772161848B00D7CD24 /* AppDelegate.swift in Sources */,
