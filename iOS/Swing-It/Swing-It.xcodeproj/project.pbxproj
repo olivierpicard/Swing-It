@@ -15,6 +15,7 @@
 		8107F8842161849000D7CD24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8107F8832161849000D7CD24 /* Assets.xcassets */; };
 		8107F8872161849000D7CD24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8107F8852161849000D7CD24 /* LaunchScreen.storyboard */; };
 		8107F88F2161881100D7CD24 /* Terrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8107F88E2161881100D7CD24 /* Terrain.swift */; };
+		8119F45921636BA600A2837D /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119F45821636BA600A2837D /* ProgressBar.swift */; };
 		81E8882E21625D3C00E1D458 /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E8882D21625D3C00E1D458 /* Cloud.swift */; };
 		81E8883021625D4900E1D458 /* CloudGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E8882F21625D4900E1D458 /* CloudGenerator.swift */; };
 		81E888322162637F00E1D458 /* IUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E888312162637F00E1D458 /* IUpdatable.swift */; };
@@ -42,6 +43,7 @@
 		8107F8862161849000D7CD24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8107F8882161849000D7CD24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8107F88E2161881100D7CD24 /* Terrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terrain.swift; sourceTree = "<group>"; };
+		8119F45821636BA600A2837D /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		81E8882D21625D3C00E1D458 /* Cloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
 		81E8882F21625D4900E1D458 /* CloudGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudGenerator.swift; sourceTree = "<group>"; };
 		81E888312162637F00E1D458 /* IUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IUpdatable.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				81E888432162AD7400E1D458 /* Bird.swift */,
 				81E888452162B61F00E1D458 /* SwipeController.swift */,
 				81E888472162BBE500E1D458 /* Extension.swift */,
+				8119F45821636BA600A2837D /* ProgressBar.swift */,
 			);
 			path = "Swing-It";
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81E8882E21625D3C00E1D458 /* Cloud.swift in Sources */,
+				8119F45921636BA600A2837D /* ProgressBar.swift in Sources */,
 				81E8883821627C1B00E1D458 /* Bonus.swift in Sources */,
 				81E888462162B61F00E1D458 /* SwipeController.swift in Sources */,
 				81E8883021625D4900E1D458 /* CloudGenerator.swift in Sources */,

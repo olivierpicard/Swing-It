@@ -123,7 +123,7 @@ class GameScene: SKScene
     
     
     func swipe(vectorIntermediate: CGVector, startPos: CGPoint, currentPos: CGPoint) {
-        print("swipe : \(vectorIntermediate)")
+        character.directionVector = vectorIntermediate.normalize()
     }
     
     

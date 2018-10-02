@@ -14,6 +14,7 @@ class Terrain {
     let TERRAIN_BOTTOM_LAYER_HEIGHT: CGFloat = 0.2
     let TERRAIN_TOP_LAYER_HEIGHT:  CGFloat = 0.2
     let TERRAIN_POSITION: CGFloat
+    let TERRAIN_TOP_POS: CGFloat
     
     init(_ scene: SKScene) {
         self.scene = scene
@@ -21,6 +22,7 @@ class Terrain {
         let realTopTerrainHeight = realTerrainHeight * TERRAIN_TOP_LAYER_HEIGHT
         
         TERRAIN_POSITION = realTerrainHeight/2
+        TERRAIN_TOP_POS = realTerrainHeight
         
         let bottomLayer = SKSpriteNode(
             color: UIColor.init(red: 109/255.0, green: 94/255.0, blue: 77/255.0, alpha: 1),
