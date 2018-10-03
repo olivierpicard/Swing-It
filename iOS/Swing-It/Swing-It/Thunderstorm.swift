@@ -11,6 +11,7 @@ import SpriteKit
 
 class Thunderstorm : SKSpriteNode, IUpdatable
 {
+    static let contactTestBitMask = 0x000003
     var _scene: GameScene!
     var randomFlashDelay: TimeInterval!
     var lastGenerationTime: TimeInterval = 0

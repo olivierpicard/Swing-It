@@ -10,9 +10,10 @@ import Foundation
 import SpriteKit
 
 
-class Ennemy : SKSpriteNode, IUpdatable, IDeletable
+class Ennemy : SKSpriteNode, IUpdatable, IDeletable, ICollisionable
 {
     let _scene: GameScene!
+    static let contactTestBitMask = 2
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -33,4 +34,5 @@ class Ennemy : SKSpriteNode, IUpdatable, IDeletable
     
     func update(_ currentTime: TimeInterval) { position.x -= _scene.SPEED }
     func canBeDeleted() -> Bool { return (position.x + size.width/2 + 5 < 0) }
+    func getFrame() -> CGRect { return frame }
 }

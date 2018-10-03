@@ -9,9 +9,10 @@
 import Foundation
 import SpriteKit
 
-class Bonus : SKSpriteNode, IUpdatable, IDeletable
+class Bonus : SKSpriteNode, IUpdatable, IDeletable, ICollisionable
 {
     let _scene: GameScene!
+    static let contactTestBitMask = 3
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -32,5 +33,6 @@ class Bonus : SKSpriteNode, IUpdatable, IDeletable
     
     func update(_ currentTime: TimeInterval) { position.x -= _scene.SPEED }
     func canBeDeleted() -> Bool { return (position.x + size.width/2 + 5 < 0) }
+    func getFrame() -> CGRect { return frame }
 }
 

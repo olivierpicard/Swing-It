@@ -10,14 +10,14 @@ import Foundation
 import SpriteKit
 
 class Terrain {
-    private let scene: SKScene!
+    private let _scene: SKScene!
     let TERRAIN_BOTTOM_LAYER_HEIGHT: CGFloat = 0.2
     let TERRAIN_TOP_LAYER_HEIGHT:  CGFloat = 0.2
     let TERRAIN_POSITION: CGFloat
     let TERRAIN_TOP_POS: CGFloat
     
     init(_ scene: SKScene) {
-        self.scene = scene
+        self._scene = scene
         let realTerrainHeight = scene.size.height * TERRAIN_BOTTOM_LAYER_HEIGHT
         let realTopTerrainHeight = realTerrainHeight * TERRAIN_TOP_LAYER_HEIGHT
         
@@ -41,4 +41,5 @@ class Terrain {
         scene.addChild(bottomLayer)
         scene.addChild(topLayer)
     }
+    
 }

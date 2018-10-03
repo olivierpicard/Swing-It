@@ -9,13 +9,20 @@
 import Foundation
 import SpriteKit
 
-class Bird : SKSpriteNode, IUpdatable
+class Bird : SKSpriteNode, IUpdatable, ICollisionableListener
 {
+    static let contactTestBitMask = 1
     var directionVector: CGVector!
     var isFalling = false
     var enable = true
     var _scene: GameScene!
     var lifeBar: ProgressBar!
+    var _itemInCollisionWith: [SKNode] = []
+    var itemInCollisionWith: [SKNode] {
+        get { return _itemInCollisionWith }
+        set { _itemInCollisionWith = newValue }
+    }
+    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -60,6 +67,7 @@ class Bird : SKSpriteNode, IUpdatable
         
         if(lifeBar.value <= 0) { isFalling = true }
         else if(position.y - size.height > _scene.size.height) { isFalling = true }
+        else if(position.y - size.height < _scene.terrain.TERRAIN_POSITION) { isFalling = true }
         
         if(!isFalling) {
             let yDirection = directionVector.dy
@@ -79,4 +87,22 @@ class Bird : SKSpriteNode, IUpdatable
             position.y -= _scene.CHARACTER_SPEED * 2
         }
     }
+    
+    
+    func collisionEnter(node: SKNode) {
+        let i = itemInCollisionWith.firstIndex(of: node)
+        if(i != nil) { itemInCollisionWith.remove(at: i!) }
+        _scene.removeChildren(in: [node])
+        if(node is Ennemy) {
+            isFalling = true
+        } else if node is Bonus {
+            lifeBar.value += _scene.BONUS_VALUE
+        }
+    }
+    
+    
+    func collisionExit(node: SKNode) { }
+    func getFrame() -> CGRect { return frame }
+    
+    
 }

@@ -10,11 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cb4c6c8-ec60-4918-8826-8df4eae27d26" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/ProgressBar.swift" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/ICollisionable.swift" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/ICollisionableListener.swift" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It.xcodeproj/project.pbxproj" />
       <change beforePath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It.xcodeproj/project.xcworkspace/xcuserdata/olivierpicard.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It.xcodeproj/project.xcworkspace/xcuserdata/olivierpicard.xcuserdatad/UserInterfaceState.xcuserstate" />
       <change beforePath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Bird.swift" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Bird.swift" />
+      <change beforePath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Bonus.swift" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Bonus.swift" />
+      <change beforePath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Ennemy.swift" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Ennemy.swift" />
+      <change beforePath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/GameScene.swift" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/GameScene.swift" />
+      <change beforePath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Terrain.swift" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Terrain.swift" />
+      <change beforePath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Thunderstorm.swift" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Thunderstorm.swift" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -2260,7 +2266,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_qrcode.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/QRCodeActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/Graphics/GScene.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/Cloud.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/Terrain.kt" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
@@ -2280,12 +2285,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/GameScene.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/CloudGenerator.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/Character.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/Graphics/GScene.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="width" value="800" />
+    <option name="height" value="600" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -2306,7 +2312,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -2353,6 +2358,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
@@ -2810,7 +2816,7 @@
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24177396" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13090129" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37122127" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2959,13 +2965,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/CameraPreview.kt" />
@@ -2978,14 +2984,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_qrcode.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/Graphics/GSceneViewController.java">
@@ -2999,7 +3004,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="422">
           <caret line="7234" column="0" lean-forward="false" selection-start-line="7234" selection-start-column="0" selection-end-line="7234" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3065,7 +3069,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="29" column="1" lean-forward="true" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3073,7 +3076,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="21" column="69" lean-forward="false" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="69" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3081,7 +3083,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="7" column="65" lean-forward="false" selection-start-line="7" selection-start-column="65" selection-end-line="7" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3110,7 +3111,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="7" column="67" lean-forward="false" selection-start-line="7" selection-start-column="67" selection-end-line="7" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3123,7 +3123,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="397">
           <caret line="35" column="110" lean-forward="true" selection-start-line="33" selection-start-column="8" selection-end-line="35" selection-end-column="110" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3131,7 +3130,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
           <caret line="61" column="39" lean-forward="true" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3139,7 +3137,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="33" column="1" lean-forward="true" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3161,7 +3158,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3169,7 +3165,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="705">
           <caret line="49" column="9" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="49" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3177,23 +3172,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/Graphics/GScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="258" column="22" lean-forward="false" selection-start-line="258" selection-start-column="22" selection-end-line="258" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/Character.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="29" column="39" lean-forward="false" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3201,6 +3179,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
           <caret line="210" column="24" lean-forward="false" selection-start-line="210" selection-start-column="12" selection-end-line="210" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/Graphics/GScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="184" column="29" lean-forward="false" selection-start-line="184" selection-start-column="29" selection-end-line="184" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/Character.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="66" column="9" lean-forward="true" selection-start-line="56" selection-start-column="8" selection-end-line="66" selection-end-column="9" />
           <folding />
         </state>
       </provider>

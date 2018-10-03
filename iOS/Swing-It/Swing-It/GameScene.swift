@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene
+class GameScene: SKScene, SKPhysicsContactDelegate
 {
     enum GameState{
         case GAME_OVER
@@ -42,8 +42,8 @@ class GameScene: SKScene
     let CHARACTER_XPOS: CGFloat = 0.2 // Percentage of screenWidth where character will be put on
     let CHARACTER_SPEED: CGFloat = 5 // Character displacement in pixel
     let CHARACTER_ROTATION: CGFloat = 25 // Rotation in degrees of the character when he moves
-    let CHARACTER_LIFE: CGFloat = 100 // Max life that player can have
-    let BONUS_VALUE: CGFloat = 18 // letue that bonus can get you if you take it
+    let CHARACTER_LIFE: CGFloat = 200 // Max life that player can have
+    let BONUS_VALUE: CGFloat = 20 // letue that bonus can get you if you take it
     let BONUS_PROBABILITY: CGFloat = 0.6
     let CHARACTER_LIFE_DECREASE: CGFloat = 0.5 // character's life will be decreased each frame with this letue
     let CLOUD_SIZE = CGSize(width: 140, height: 80) // Cloud size in the background
@@ -59,6 +59,7 @@ class GameScene: SKScene
     private var swipeController: SwipeController!
     private var gameState = GameState.NOT_INIT
     private var isAccelerometerEnable = true
+    private var itemCollisionable: [ICollisionableListener] = []
     
     private var cloudGenerator: CloudGenerator!
     private var bonusGenerator: BonusGenerator!
@@ -79,6 +80,7 @@ class GameScene: SKScene
         rainGenerator = RainGenerator(scene: self)
         thunderstorm = Thunderstorm(scene: self)
         character = Bird(scene: self)
+        itemCollisionable.append(character as! ICollisionableListener)
         
         addChild(character)
         addChild(thunderstorm)
@@ -118,8 +120,28 @@ class GameScene: SKScene
         for child in children {
             if (child as? IDeletable)?.canBeDeleted() ?? false { removeChildren(in: [child]); continue }
             (child as? IUpdatable)?.update(currentTime)
+            if(child is ICollisionable) { collisionDetection(node: child as! ICollisionable) }
         }
     }
+    
+    
+    func collisionDetection(node: ICollisionable) {
+        for indice in itemCollisionable.indices {
+            var listener = itemCollisionable[indice]
+            if(node is ICollisionableListener) { continue }
+            if(listener.getFrame().intersects(node.getFrame()) && !listener.itemInCollisionWith.contains(node as! SKNode)) {
+                listener.collisionEnter(node: node as! SKNode)
+                listener.itemInCollisionWith.append(node as! SKNode)
+                print("size : \(listener.itemInCollisionWith.count)")
+            }
+            else if(!listener.getFrame().intersects(node.getFrame()) && listener.itemInCollisionWith.contains(node as! SKNode)) {
+                listener.itemInCollisionWith.remove(at: listener.itemInCollisionWith.firstIndex(of: node as! SKNode)!)
+                listener.collisionExit(node: node as! SKNode)
+                print("remove : \(listener.itemInCollisionWith.count)")
+            }
+        }
+    }
+    
     
     
     func swipe(vectorIntermediate: CGVector, startPos: CGPoint, currentPos: CGPoint) {
@@ -144,7 +166,6 @@ class GameScene: SKScene
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        self.touchMoved(toPoint: touches.first!.location(in: self))
         for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
     }
 
