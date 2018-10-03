@@ -69,6 +69,7 @@ class GameScene: SKScene
     private var character: Bird!
     private var score_label: SKLabelNode!
     private var welcomeScreen: WelcomeScreen!
+    private var gameOverScreen: GameOverScreen!
     var terrain: Terrain!
     
     
@@ -76,6 +77,7 @@ class GameScene: SKScene
         backgroundColor = skyColor()
         swipeController = SwipeController(callback: swipe)
         welcomeScreen = WelcomeScreen(scene: self)
+        gameOverScreen = GameOverScreen(scene: self)
         terrain = Terrain.init(self)
         bonusGenerator = BonusGenerator(scene: self)
         cloudGenerator = CloudGenerator(scene: self)
@@ -92,7 +94,7 @@ class GameScene: SKScene
         self.score_label.fontColor = UIColor.white
         self.score_label.isHidden = false
         score_label.position = CGPoint(x: frame.midX, y: size.height - (size.height * 0.3))
-        setFlagGameState(_gameState: GameState.WELCOME)
+        setFlagGameState(_gameState: GameState.GAME_OVER)
         
         addChild(score_label)
         addChild(character)
@@ -154,7 +156,6 @@ class GameScene: SKScene
     }
     
     
-    
     func swipe(vectorIntermediate: CGVector, startPos: CGPoint, currentPos: CGPoint) {
         character.directionVector = vectorIntermediate.normalize()
     }
@@ -169,7 +170,9 @@ class GameScene: SKScene
     }
     
     func touchUp(atPoint pos : CGPoint) {
-        swipeController.reset()
+        if gameState == GameState.PLAY { swipeController.reset() }
+        else if gameState == GameState.WELCOME { welcomeScreen.touchUp(pos) }
+        else if gameState == GameState.GAME_OVER { gameOverScreen.touchUp(pos) }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -189,6 +192,11 @@ class GameScene: SKScene
     }
     
     
+    func getFlagGameState() -> GameState{
+        return gameState
+    }
+    
+    
     func setFlagGameState(_gameState: GameState)
     {
         if(gameState != GameState.NOT_INIT && gameState == _gameState) { return }
@@ -197,7 +205,7 @@ class GameScene: SKScene
             character?.reset()
             score_label.text = "0"
 //            markAsAccelerometerReferencePosition()
-//            gameOverScreen.hide()
+            gameOverScreen.hide()
             welcomeScreen.hide()
             character.enable = true
             score_label.isHidden = false
@@ -205,12 +213,12 @@ class GameScene: SKScene
             character.reset()
             score_label.text = "0"
             character.enable = false
-//            gameOverScreen.hide()
+            gameOverScreen.hide()
             welcomeScreen.show()
             score_label.isHidden = true
         } else if(_gameState == GameState.GAME_OVER) {
             welcomeScreen.hide()
-//            gameOverScreen.show()
+            gameOverScreen.show()
         }
     }
 }

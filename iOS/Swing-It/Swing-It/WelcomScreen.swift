@@ -50,12 +50,9 @@ class WelcomeScreen {
     }
     
     func touchUp(_ pos: CGPoint) {
-//        if self.play_button.isClicked(pos) { hide(); self.scene.start() }
+        if self.play_button.isClicked(pos) {scene.setFlagGameState(_gameState: GameScene.GameState.PLAY) }
 //        else if self.resume_button.isClicked(pos) {
-//            self.scene.view_Controller.performSegue(withIdentifier: "Resume", sender: nil)
-//        }
-//        else if self.score_button.isClicked(pos) {
-//            self.scene.view_Controller.performSegue(withIdentifier: "Scores", sender: nil)
+//            scene.view_Controller.performSegue(withIdentifier: "Resume", sender: nil)
 //        }
     }
 }

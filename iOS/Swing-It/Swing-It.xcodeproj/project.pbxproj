@@ -20,6 +20,7 @@
 		813040822165129D007E1A2D /* ICollisionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813040812165129D007E1A2D /* ICollisionable.swift */; };
 		81304084216531EE007E1A2D /* WelcomScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81304083216531EE007E1A2D /* WelcomScreen.swift */; };
 		8130408621653216007E1A2D /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8130408521653216007E1A2D /* Button.swift */; };
+		813040882165517E007E1A2D /* GameOverScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813040872165517E007E1A2D /* GameOverScreen.swift */; };
 		81E8882E21625D3C00E1D458 /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E8882D21625D3C00E1D458 /* Cloud.swift */; };
 		81E8883021625D4900E1D458 /* CloudGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E8882F21625D4900E1D458 /* CloudGenerator.swift */; };
 		81E888322162637F00E1D458 /* IUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E888312162637F00E1D458 /* IUpdatable.swift */; };
@@ -52,6 +53,7 @@
 		813040812165129D007E1A2D /* ICollisionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICollisionable.swift; sourceTree = "<group>"; };
 		81304083216531EE007E1A2D /* WelcomScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomScreen.swift; sourceTree = "<group>"; };
 		8130408521653216007E1A2D /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		813040872165517E007E1A2D /* GameOverScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScreen.swift; sourceTree = "<group>"; };
 		81E8882D21625D3C00E1D458 /* Cloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
 		81E8882F21625D4900E1D458 /* CloudGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudGenerator.swift; sourceTree = "<group>"; };
 		81E888312162637F00E1D458 /* IUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IUpdatable.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				813040812165129D007E1A2D /* ICollisionable.swift */,
 				81304083216531EE007E1A2D /* WelcomScreen.swift */,
 				8130408521653216007E1A2D /* Button.swift */,
+				813040872165517E007E1A2D /* GameOverScreen.swift */,
 			);
 			path = "Swing-It";
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				81E888442162AD7400E1D458 /* Bird.swift in Sources */,
 				81E888342162649100E1D458 /* IDeletable.swift in Sources */,
 				81E888322162637F00E1D458 /* IUpdatable.swift in Sources */,
+				813040882165517E007E1A2D /* GameOverScreen.swift in Sources */,
 				81E8884221628B5700E1D458 /* Thunderstorm.swift in Sources */,
 				81E888402162847800E1D458 /* RainGenerator.swift in Sources */,
 			);

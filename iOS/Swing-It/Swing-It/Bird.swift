@@ -54,6 +54,8 @@ class Bird : SKSpriteNode, IUpdatable, ICollisionableListener
         self.position = CGPoint(x: _scene.size.width * _scene.CHARACTER_XPOS,
                                 y: (_scene.size.height - _scene.terrain.TERRAIN_BOTTOM_LAYER_HEIGHT) / 2)
         lifeBar?.value = lifeBar.maxValue
+        self.alpha = 1
+        lifeBar.alpha = 1
         isFalling = false
     }
     
@@ -79,6 +81,9 @@ class Bird : SKSpriteNode, IUpdatable, ICollisionableListener
             if(yDirection == 0) { zRotation = 0 }
         }
         else {
+            if(_scene.getFlagGameState() == GameScene.GameState.PLAY) {
+                _scene.setFlagGameState(_gameState: GameScene.GameState.GAME_OVER)
+            }
             lifeBar.value = 0
             // Is Falling
             zRotation = CGFloat(GLKMathDegreesToRadians(-50))
