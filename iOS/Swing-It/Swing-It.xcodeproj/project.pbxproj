@@ -18,6 +18,8 @@
 		8119F45921636BA600A2837D /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119F45821636BA600A2837D /* ProgressBar.swift */; };
 		8119F45B2163A99E00A2837D /* ICollisionableListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119F45A2163A99E00A2837D /* ICollisionableListener.swift */; };
 		813040822165129D007E1A2D /* ICollisionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813040812165129D007E1A2D /* ICollisionable.swift */; };
+		81304084216531EE007E1A2D /* WelcomScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81304083216531EE007E1A2D /* WelcomScreen.swift */; };
+		8130408621653216007E1A2D /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8130408521653216007E1A2D /* Button.swift */; };
 		81E8882E21625D3C00E1D458 /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E8882D21625D3C00E1D458 /* Cloud.swift */; };
 		81E8883021625D4900E1D458 /* CloudGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E8882F21625D4900E1D458 /* CloudGenerator.swift */; };
 		81E888322162637F00E1D458 /* IUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E888312162637F00E1D458 /* IUpdatable.swift */; };
@@ -48,6 +50,8 @@
 		8119F45821636BA600A2837D /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		8119F45A2163A99E00A2837D /* ICollisionableListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICollisionableListener.swift; sourceTree = "<group>"; };
 		813040812165129D007E1A2D /* ICollisionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICollisionable.swift; sourceTree = "<group>"; };
+		81304083216531EE007E1A2D /* WelcomScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomScreen.swift; sourceTree = "<group>"; };
+		8130408521653216007E1A2D /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		81E8882D21625D3C00E1D458 /* Cloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
 		81E8882F21625D4900E1D458 /* CloudGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudGenerator.swift; sourceTree = "<group>"; };
 		81E888312162637F00E1D458 /* IUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IUpdatable.swift; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 				8119F45821636BA600A2837D /* ProgressBar.swift */,
 				8119F45A2163A99E00A2837D /* ICollisionableListener.swift */,
 				813040812165129D007E1A2D /* ICollisionable.swift */,
+				81304083216531EE007E1A2D /* WelcomScreen.swift */,
+				8130408521653216007E1A2D /* Button.swift */,
 			);
 			path = "Swing-It";
 			sourceTree = "<group>";
@@ -197,7 +203,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				813040822165129D007E1A2D /* ICollisionable.swift in Sources */,
+				8130408621653216007E1A2D /* Button.swift in Sources */,
 				8119F45B2163A99E00A2837D /* ICollisionableListener.swift in Sources */,
+				81304084216531EE007E1A2D /* WelcomScreen.swift in Sources */,
 				81E8882E21625D3C00E1D458 /* Cloud.swift in Sources */,
 				8119F45921636BA600A2837D /* ProgressBar.swift in Sources */,
 				81E8883821627C1B00E1D458 /* Bonus.swift in Sources */,

@@ -59,6 +59,7 @@ class Bird : SKSpriteNode, IUpdatable, ICollisionableListener
     
     
     func update(_ currentTime: TimeInterval) {
+        if(alpha == 0) { return }
         if(!enable) { alpha = 0 ; lifeBar.alpha = 0 ; return }
         
         alpha = 1
@@ -90,6 +91,7 @@ class Bird : SKSpriteNode, IUpdatable, ICollisionableListener
     
     
     func collisionEnter(node: SKNode) {
+        if(alpha == 0) { return }
         let i = itemInCollisionWith.firstIndex(of: node)
         if(i != nil) { itemInCollisionWith.remove(at: i!) }
         _scene.removeChildren(in: [node])

@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene, SKPhysicsContactDelegate
+class GameScene: SKScene
 {
     enum GameState{
         case GAME_OVER
@@ -67,12 +67,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     private var rainGenerator: RainGenerator!
     private var thunderstorm: Thunderstorm!
     private var character: Bird!
+    private var score_label: SKLabelNode!
+    private var welcomeScreen: WelcomeScreen!
     var terrain: Terrain!
     
     
     override func didMove(to view: SKView) {
         backgroundColor = skyColor()
         swipeController = SwipeController(callback: swipe)
+        welcomeScreen = WelcomeScreen(scene: self)
         terrain = Terrain.init(self)
         bonusGenerator = BonusGenerator(scene: self)
         cloudGenerator = CloudGenerator(scene: self)
@@ -80,8 +83,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         rainGenerator = RainGenerator(scene: self)
         thunderstorm = Thunderstorm(scene: self)
         character = Bird(scene: self)
-        itemCollisionable.append(character as! ICollisionableListener)
+        itemCollisionable.append(character as ICollisionableListener)
         
+        score_label = SKLabelNode(text: "0")
+        self.score_label.alpha = 0.8
+        self.score_label.fontName = "HelveticaNeue-Light"
+        self.score_label.fontSize = 55
+        self.score_label.fontColor = UIColor.white
+        self.score_label.isHidden = false
+        score_label.position = CGPoint(x: frame.midX, y: size.height - (size.height * 0.3))
+        setFlagGameState(_gameState: GameState.WELCOME)
+        
+        addChild(score_label)
         addChild(character)
         addChild(thunderstorm)
     }
@@ -132,12 +145,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate
             if(listener.getFrame().intersects(node.getFrame()) && !listener.itemInCollisionWith.contains(node as! SKNode)) {
                 listener.collisionEnter(node: node as! SKNode)
                 listener.itemInCollisionWith.append(node as! SKNode)
-                print("size : \(listener.itemInCollisionWith.count)")
             }
             else if(!listener.getFrame().intersects(node.getFrame()) && listener.itemInCollisionWith.contains(node as! SKNode)) {
                 listener.itemInCollisionWith.remove(at: listener.itemInCollisionWith.firstIndex(of: node as! SKNode)!)
                 listener.collisionExit(node: node as! SKNode)
-                print("remove : \(listener.itemInCollisionWith.count)")
             }
         }
     }
@@ -164,16 +175,42 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
-
+    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
     }
-
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
-
+    
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+    }
+    
+    
+    func setFlagGameState(_gameState: GameState)
+    {
+        if(gameState != GameState.NOT_INIT && gameState == _gameState) { return }
+        gameState = _gameState
+        if(_gameState == GameState.PLAY) {
+            character?.reset()
+            score_label.text = "0"
+//            markAsAccelerometerReferencePosition()
+//            gameOverScreen.hide()
+            welcomeScreen.hide()
+            character.enable = true
+            score_label.isHidden = false
+        } else if(_gameState == GameState.WELCOME) {
+            character.reset()
+            score_label.text = "0"
+            character.enable = false
+//            gameOverScreen.hide()
+            welcomeScreen.show()
+            score_label.isHidden = true
+        } else if(_gameState == GameState.GAME_OVER) {
+            welcomeScreen.hide()
+//            gameOverScreen.show()
+        }
     }
 }
