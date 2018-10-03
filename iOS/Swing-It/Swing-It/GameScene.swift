@@ -28,7 +28,7 @@ class GameScene: SKScene
     
     static let ENNEMY_PROBABILITY: CGFloat = 0.005
     static let BASE_SIZE = CGSize(width: 60.0, height: 50.0)
-    static var weather = Weather.Cleared
+    static var weather = Weather.Stormy
     static var ennemyProbability = ENNEMY_PROBABILITY
     static var bonusSize = BASE_SIZE
     static var cloudImageTexture = "cloud2"
@@ -43,7 +43,7 @@ class GameScene: SKScene
     let CHARACTER_SPEED: CGFloat = 5 // Character displacement in pixel
     let CHARACTER_ROTATION: CGFloat = 25 // Rotation in degrees of the character when he moves
     let CHARACTER_LIFE: CGFloat = 200 // Max life that player can have
-    let BONUS_VALUE: CGFloat = 20 // letue that bonus can get you if you take it
+    let BONUS_VALUE: CGFloat = 17 // letue that bonus can get you if you take it
     let BONUS_PROBABILITY: CGFloat = 0.6
     let CHARACTER_LIFE_DECREASE: CGFloat = 0.5 // character's life will be decreased each frame with this letue
     let CLOUD_SIZE = CGSize(width: 140, height: 80) // Cloud size in the background
@@ -54,7 +54,7 @@ class GameScene: SKScene
     let RAIN_SIZE_SMALL = CGSize(width: 1, height: 13)
     let THUNDERSTORM_DELAY = 1.5...3.0
     
-    var timelapseItemGeneration: TimeInterval = 1
+    var timelapseItemGeneration: TimeInterval = 0.6
     var timelapseCloudGenerator: TimeInterval = 1
     private var swipeController: SwipeController!
     private var gameState = GameState.NOT_INIT
@@ -94,11 +94,11 @@ class GameScene: SKScene
         self.score_label.fontColor = UIColor.white
         self.score_label.isHidden = false
         score_label.position = CGPoint(x: frame.midX, y: size.height - (size.height * 0.3))
-        setFlagGameState(_gameState: GameState.GAME_OVER)
+        setFlagGameState(_gameState: GameState.WELCOME)
         
         addChild(score_label)
         addChild(character)
-        addChild(thunderstorm)
+        if(GameScene.weather == GameScene.Weather.Stormy) { addChild(thunderstorm) }
     }
     
     
@@ -126,11 +126,16 @@ class GameScene: SKScene
     
     
     override func update(_ currentTime: TimeInterval) {
-        bonusGenerator.update(currentTime)
         cloudGenerator.update(currentTime)
-        ennemiesGenerator.update(currentTime)
-        rainGenerator.update(currentTime)
-        thunderstorm.update(currentTime)
+        
+        
+        if(GameScene.weather == Weather.Stormy || GameScene.weather == Weather.Rainy) {
+            rainGenerator.update(currentTime)
+        }
+        if(gameState == GameState.PLAY) {
+            bonusGenerator.update(currentTime)
+            ennemiesGenerator.update(currentTime)
+        }
         
         for child in children {
             if (child as? IDeletable)?.canBeDeleted() ?? false { removeChildren(in: [child]); continue }

@@ -31,6 +31,7 @@ class ProgressBar: SKSpriteNode {
         get { return self._value }
         set {
             if(newValue >= 0) { self._value = newValue }
+            else if(newValue > self.value) { self.value = self.maxValue }
             else { self._value = 0 }
             updateView()
         }
