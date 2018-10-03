@@ -10,9 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cb4c6c8-ec60-4918-8826-8df4eae27d26" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It.xcodeproj/project.xcworkspace/xcuserdata/olivierpicard.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It.xcodeproj/project.xcworkspace/xcuserdata/olivierpicard.xcuserdatad/UserInterfaceState.xcuserstate" />
-      <change beforePath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/GameScene.swift" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/GameScene.swift" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -51,11 +49,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Thunderstorm.kt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/Thunderstorm.kt">
+      <file leaf-file-name="GameScene.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/GameScene.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="49" column="9" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="49" selection-end-column="9" />
+            <state relative-caret-position="408">
+              <caret line="183" column="37" lean-forward="false" selection-start-line="183" selection-start-column="17" selection-end-line="183" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -3187,18 +3185,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/GameScene.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="59" column="20" lean-forward="false" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/Thunderstorm.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="705">
           <caret line="49" column="9" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="49" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/GameScene.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="183" column="37" lean-forward="false" selection-start-line="183" selection-start-column="17" selection-end-line="183" selection-end-column="37" />
           <folding />
         </state>
       </provider>

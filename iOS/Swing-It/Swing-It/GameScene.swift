@@ -8,6 +8,7 @@
 
 import SpriteKit
 import GameplayKit
+import CoreMotion
 
 class GameScene: SKScene
 {
@@ -28,7 +29,7 @@ class GameScene: SKScene
     
     static let ENNEMY_PROBABILITY: CGFloat = 0.005
     static let BASE_SIZE = CGSize(width: 60.0, height: 50.0)
-    static var weather = Weather.Stormy
+    static var weather = Weather.Cleared
     static var ennemyProbability = ENNEMY_PROBABILITY
     static var bonusSize = BASE_SIZE
     static var cloudImageTexture = "cloud2"
@@ -60,6 +61,9 @@ class GameScene: SKScene
     private var gameState = GameState.NOT_INIT
     private var isAccelerometerEnable = true
     private var itemCollisionable: [ICollisionableListener] = []
+    private var motionManager: CMMotionManager!
+    private var referenceMotionX: Double? = nil
+    private var _isAccelerometerEnable = false
     
     private var cloudGenerator: CloudGenerator!
     private var bonusGenerator: BonusGenerator!
@@ -75,6 +79,8 @@ class GameScene: SKScene
     
     override func didMove(to view: SKView) {
         backgroundColor = skyColor()
+        motionManager = CMMotionManager()
+        motionManager.startAccelerometerUpdates()
         swipeController = SwipeController(callback: swipe)
         welcomeScreen = WelcomeScreen(scene: self)
         gameOverScreen = GameOverScreen(scene: self)
@@ -127,7 +133,8 @@ class GameScene: SKScene
     
     override func update(_ currentTime: TimeInterval) {
         cloudGenerator.update(currentTime)
-        
+        if(self.referenceMotionX == nil) { self.referenceMotionX = motionManager.accelerometerData?.acceleration.x }
+        else if(_isAccelerometerEnable) { onAccelerometerEvent() }
         
         if(GameScene.weather == Weather.Stormy || GameScene.weather == Weather.Rainy) {
             rainGenerator.update(currentTime)
@@ -142,6 +149,14 @@ class GameScene: SKScene
             (child as? IUpdatable)?.update(currentTime)
             if(child is ICollisionable) { collisionDetection(node: child as! ICollisionable) }
         }
+    }
+        
+        
+    func onAccelerometerEvent() {
+        let xAclrt = motionManager.accelerometerData?.acceleration.x
+        let sub = referenceMotionX! - xAclrt!
+        let vector = CGVector(dx: 0, dy: sub)
+        if(vector.dy != 0) { character.directionVector = vector.normalize() }
     }
     
     
@@ -168,6 +183,7 @@ class GameScene: SKScene
     
     func touchDown(atPoint pos : CGPoint) {
         swipeController.start(pos: pos)
+        _isAccelerometerEnable = false
     }
     
     func touchMoved(toPoint pos : CGPoint) {
@@ -175,6 +191,8 @@ class GameScene: SKScene
     }
     
     func touchUp(atPoint pos : CGPoint) {
+        _isAccelerometerEnable = true
+        referenceMotionX = nil // Mark as reference
         if gameState == GameState.PLAY { swipeController.reset() }
         else if gameState == GameState.WELCOME { welcomeScreen.touchUp(pos) }
         else if gameState == GameState.GAME_OVER { gameOverScreen.touchUp(pos) }

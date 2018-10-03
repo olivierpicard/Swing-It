@@ -26,14 +26,17 @@ class WelcomeScreen {
         self.title_label.fontColor = UIColor.white
         
         self.play_button = Button(text: "Jouer")
-        self.resume_button = Button(text: "Reprendre")
-        self.score_button = Button(text: "Scores")
+        self.resume_button = Button(text: "Experience")
+        self.score_button = Button(text: "Position")
         
         self.title_label.position = CGPoint(x: scene.frame.midX, y: scene.size.height - (scene.size.height * 0.3))
-        self.play_button.position = CGPoint(x: scene.frame.midX, y: scene.size.height - (scene.size.height * 0.5))
+        self.play_button.position = CGPoint(x: scene.frame.midX, y: scene.size.height - (scene.size.height * 0.45))
         
         self.resume_button.position = CGPoint(x: self.play_button.position.x,
-                                              y: self.play_button.position.y - self.play_button.size.height - 30)
+                                              y: self.play_button.position.y - self.play_button.size.height - 15)
+        
+        self.score_button.position = CGPoint(x: self.resume_button.position.x,
+                                             y: self.resume_button.position.y - self.resume_button.size.height - 15)
         
     }
     
@@ -41,12 +44,14 @@ class WelcomeScreen {
         self.scene.addChild(self.title_label)
         self.scene.addChild(self.play_button)
         self.scene.addChild(self.resume_button)
+        self.scene.addChild(self.score_button)
     }
     
     func hide() {
         self.scene.removeChildren(in: [self.title_label,
                                        self.play_button,
-                                       self.resume_button])
+                                       self.resume_button,
+                                       self.score_button])
     }
     
     func touchUp(_ pos: CGPoint) {
