@@ -58,6 +58,7 @@ class GameScene: SKScene
     let SOUND_TAKEN = SKAction.playSoundFileNamed("taken.wav", waitForCompletion: false)
     let SOUND_GAMEOVER = SKAction.playSoundFileNamed("gameover.wav", waitForCompletion: false)
     let SOUND_BOMB = SKAction.playSoundFileNamed("bomb.wav", waitForCompletion: false)
+    let SOUND_RAIN = SKAudioNode(fileNamed: "rain.wav")
     
     var timelapseItemGeneration: TimeInterval = 0.6
     var timelapseCloudGenerator: TimeInterval = 1
@@ -110,6 +111,8 @@ class GameScene: SKScene
         addChild(score_label)
         addChild(character)
         if(GameScene.weather == GameScene.Weather.Stormy) { addChild(thunderstorm) }
+        if(GameScene.weather == GameScene.Weather.Stormy
+            || GameScene.weather == GameScene.Weather.Rainy) { addChild(SOUND_RAIN) }
     }
     
     

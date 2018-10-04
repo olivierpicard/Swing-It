@@ -28,6 +28,7 @@
 		814812512166B4FF0042415A /* bomb.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8148124E2166B4FF0042415A /* bomb.mp3 */; };
 		814812522166B4FF0042415A /* gameover.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8148124F2166B4FF0042415A /* gameover.wav */; };
 		814812532166B4FF0042415A /* taken.wav in Resources */ = {isa = PBXBuildFile; fileRef = 814812502166B4FF0042415A /* taken.wav */; };
+		814812572166BE9F0042415A /* rain.wav in Resources */ = {isa = PBXBuildFile; fileRef = 814812562166BE9F0042415A /* rain.wav */; };
 		81E8882E21625D3C00E1D458 /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E8882D21625D3C00E1D458 /* Cloud.swift */; };
 		81E8883021625D4900E1D458 /* CloudGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E8882F21625D4900E1D458 /* CloudGenerator.swift */; };
 		81E888322162637F00E1D458 /* IUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E888312162637F00E1D458 /* IUpdatable.swift */; };
@@ -68,6 +69,7 @@
 		8148124E2166B4FF0042415A /* bomb.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bomb.mp3; sourceTree = "<group>"; };
 		8148124F2166B4FF0042415A /* gameover.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gameover.wav; sourceTree = "<group>"; };
 		814812502166B4FF0042415A /* taken.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = taken.wav; sourceTree = "<group>"; };
+		814812562166BE9F0042415A /* rain.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = rain.wav; sourceTree = "<group>"; };
 		81E8882D21625D3C00E1D458 /* Cloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
 		81E8882F21625D4900E1D458 /* CloudGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudGenerator.swift; sourceTree = "<group>"; };
 		81E888312162637F00E1D458 /* IUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IUpdatable.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 		814812542166B5060042415A /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				814812562166BE9F0042415A /* rain.wav */,
 				8148124E2166B4FF0042415A /* bomb.mp3 */,
 				8148124F2166B4FF0042415A /* gameover.wav */,
 				814812502166B4FF0042415A /* taken.wav */,
@@ -235,6 +238,7 @@
 				8107F8822161848B00D7CD24 /* Main.storyboard in Resources */,
 				814812512166B4FF0042415A /* bomb.mp3 in Resources */,
 				8107F8792161848B00D7CD24 /* GameScene.sks in Resources */,
+				814812572166BE9F0042415A /* rain.wav in Resources */,
 				8107F8842161849000D7CD24 /* Assets.xcassets in Resources */,
 				8107F8872161849000D7CD24 /* LaunchScreen.storyboard in Resources */,
 			);

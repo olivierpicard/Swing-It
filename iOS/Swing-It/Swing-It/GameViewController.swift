@@ -13,6 +13,12 @@ import GameplayKit
 class GameViewController: UIViewController
 {
     static var qrCodeMessage: String?
+    var scene: GameScene!
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        scene.removeAllActions()
+        scene.removeAllChildren()
+    }
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,6 +35,7 @@ class GameViewController: UIViewController
             // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "GameScene") {
                 // Set the scale mode to scale to fit the window
+                self.scene = (scene as! GameScene)
                 scene.scaleMode = .aspectFill
                 (scene as! GameScene).viewController = self
                 // Present the scene
