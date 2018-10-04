@@ -56,6 +56,9 @@ class WelcomeScreen {
     
     func touchUp(_ pos: CGPoint) {
         if self.play_button.isClicked(pos) {scene.setFlagGameState(_gameState: GameScene.GameState.PLAY) }
+        else if self.experience_button.isClicked(pos) {
+            scene.viewController.performSegue(withIdentifier: "Camera", sender: nil)
+        }
         else if self.map_button.isClicked(pos) {
             scene.viewController.performSegue(withIdentifier: "Map", sender: nil)
         }

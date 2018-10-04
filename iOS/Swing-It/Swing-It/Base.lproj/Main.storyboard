@@ -23,10 +23,28 @@
                     <navigationItem key="navigationItem" id="c2d-Ct-l5p"/>
                     <connections>
                         <segue destination="kE4-A4-xrl" kind="show" identifier="Map" id="4MH-q1-jTs"/>
+                        <segue destination="3db-Un-92H" kind="show" identifier="Camera" id="TQP-Kx-DpD"/>
                     </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1448.8" y="119.1904047976012"/>
+        </scene>
+        <!--Camera Controller-->
+        <scene sceneID="tOr-iN-5RS">
+            <objects>
+                <viewController id="3db-Un-92H" customClass="CameraController" customModule="Swing_It" customModuleProvider="target" sceneMemberID="viewController">
+                    <imageView key="view" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square" id="SvY-Gf-NGJ">
+                        <rect key="frame" x="0.0" y="0.0" width="666" height="375"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <size key="freeformSize" width="666" height="375"/>
+                    <connections>
+                        <outlet property="square" destination="SvY-Gf-NGJ" id="4Tx-hl-FkW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JrM-i7-8pb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2847" y="322"/>
         </scene>
         <!--Map Controller-->
         <scene sceneID="voT-o5-8px">
@@ -56,7 +74,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zBw-35-mLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2840.8000000000002" y="118.29085457271366"/>
+            <point key="canvasLocation" x="2847" y="-84"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BCu-Jz-kcX">
@@ -81,4 +99,7 @@
             <point key="canvasLocation" x="204" y="119"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="square" width="276" height="276"/>
+    </resources>
 </document>

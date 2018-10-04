@@ -23,6 +23,8 @@
 		813040882165517E007E1A2D /* GameOverScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813040872165517E007E1A2D /* GameOverScreen.swift */; };
 		8135E5D721666E3500AB258F /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8135E5D621666E3500AB258F /* MapController.swift */; };
 		8135E5DA2166714C00AB258F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8135E5D92166714C00AB258F /* CoreLocation.framework */; };
+		8135E5DC21667C1500AB258F /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8135E5DB21667C1500AB258F /* CameraController.swift */; };
+		8135E5DE21667CCB00AB258F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8135E5DD21667CCB00AB258F /* AVFoundation.framework */; };
 		81E8882E21625D3C00E1D458 /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E8882D21625D3C00E1D458 /* Cloud.swift */; };
 		81E8883021625D4900E1D458 /* CloudGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E8882F21625D4900E1D458 /* CloudGenerator.swift */; };
 		81E888322162637F00E1D458 /* IUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E888312162637F00E1D458 /* IUpdatable.swift */; };
@@ -58,6 +60,8 @@
 		813040872165517E007E1A2D /* GameOverScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScreen.swift; sourceTree = "<group>"; };
 		8135E5D621666E3500AB258F /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		8135E5D92166714C00AB258F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8135E5DB21667C1500AB258F /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		8135E5DD21667CCB00AB258F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		81E8882D21625D3C00E1D458 /* Cloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
 		81E8882F21625D4900E1D458 /* CloudGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudGenerator.swift; sourceTree = "<group>"; };
 		81E888312162637F00E1D458 /* IUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IUpdatable.swift; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8135E5DE21667CCB00AB258F /* AVFoundation.framework in Frameworks */,
 				8135E5DA2166714C00AB258F /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +141,7 @@
 				8130408521653216007E1A2D /* Button.swift */,
 				813040872165517E007E1A2D /* GameOverScreen.swift */,
 				8135E5D621666E3500AB258F /* MapController.swift */,
+				8135E5DB21667C1500AB258F /* CameraController.swift */,
 			);
 			path = "Swing-It";
 			sourceTree = "<group>";
@@ -143,6 +149,7 @@
 		8135E5D82166714B00AB258F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8135E5DD21667CCB00AB258F /* AVFoundation.framework */,
 				8135E5D92166714C00AB258F /* CoreLocation.framework */,
 			);
 			name = Frameworks;
@@ -244,6 +251,7 @@
 				813040882165517E007E1A2D /* GameOverScreen.swift in Sources */,
 				81E8884221628B5700E1D458 /* Thunderstorm.swift in Sources */,
 				8135E5D721666E3500AB258F /* MapController.swift in Sources */,
+				8135E5DC21667C1500AB258F /* CameraController.swift in Sources */,
 				81E888402162847800E1D458 /* RainGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
