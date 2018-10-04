@@ -12,6 +12,11 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,7 +25,7 @@ class GameViewController: UIViewController {
             if let scene = SKScene(fileNamed: "GameScene") {
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
-                
+                (scene as! GameScene).viewController = self
                 // Present the scene
                 view.presentScene(scene)
             }

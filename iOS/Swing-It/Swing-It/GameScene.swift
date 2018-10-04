@@ -75,9 +75,11 @@ class GameScene: SKScene
     private var welcomeScreen: WelcomeScreen!
     private var gameOverScreen: GameOverScreen!
     var terrain: Terrain!
+    var viewController: UIViewController!
     
     
     override func didMove(to view: SKView) {
+        print("reset")
         backgroundColor = skyColor()
         motionManager = CMMotionManager()
         motionManager.startAccelerometerUpdates()
