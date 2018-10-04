@@ -43,9 +43,9 @@ class GameScene: SKScene
     let CHARACTER_XPOS: CGFloat = 0.2 // Percentage of screenWidth where character will be put on
     let CHARACTER_SPEED: CGFloat = 5 // Character displacement in pixel
     let CHARACTER_ROTATION: CGFloat = 25 // Rotation in degrees of the character when he moves
-    let CHARACTER_LIFE: CGFloat = 200 // Max life that player can have
-    let BONUS_VALUE: CGFloat = 17 // letue that bonus can get you if you take it
-    let BONUS_PROBABILITY: CGFloat = 0.6
+    let CHARACTER_LIFE: CGFloat = 100 // Max life that player can have
+    let BONUS_VALUE: CGFloat = 9 // letue that bonus can get you if you take it
+    let BONUS_PROBABILITY: CGFloat = 0.06
     let CHARACTER_LIFE_DECREASE: CGFloat = 0.5 // character's life will be decreased each frame with this letue
     let CLOUD_SIZE = CGSize(width: 140, height: 80) // Cloud size in the background
     let CLOUD_START_NUMBER: CGFloat = 4 // Number of cloud on the screen at start up
@@ -200,7 +200,7 @@ class GameScene: SKScene
     
     func touchUp(atPoint pos : CGPoint) {
         _isAccelerometerEnable = true
-        referenceMotionX = nil // Mark as reference
+//        referenceMotionX = nil // Mark as reference
         if gameState == GameState.PLAY { swipeController.reset() }
         else if gameState == GameState.WELCOME { welcomeScreen.touchUp(pos) }
         else if gameState == GameState.GAME_OVER { gameOverScreen.touchUp(pos) }
