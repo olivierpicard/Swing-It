@@ -12,10 +12,9 @@
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
                 <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="Swing_It" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
@@ -26,25 +25,58 @@
                         <segue destination="3db-Un-92H" kind="show" identifier="Camera" id="TQP-Kx-DpD"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1448.8" y="119.1904047976012"/>
         </scene>
-        <!--Camera Controller-->
+        <!--Camera-->
         <scene sceneID="tOr-iN-5RS">
             <objects>
-                <viewController id="3db-Un-92H" customClass="CameraController" customModule="Swing_It" customModuleProvider="target" sceneMemberID="viewController">
-                    <imageView key="view" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square" id="SvY-Gf-NGJ">
+                <viewController id="3db-Un-92H" userLabel="Camera" customClass="CameraController" customModule="Swing_It" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nSS-dS-YGG">
                         <rect key="frame" x="0.0" y="0.0" width="666" height="375"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ren-wL-eD4" userLabel="preview">
+                                <rect key="frame" x="0.0" y="0.0" width="666" height="375"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="square" translatesAutoresizingMaskIntoConstraints="NO" id="tbW-zc-qnK">
+                                <rect key="frame" x="262" y="117" width="140" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLt-eL-FQ6">
+                                <rect key="frame" x="28" y="305" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="ASv-WT-rOL"/>
+                                    <constraint firstAttribute="height" constant="50" id="ijs-Gk-rPa"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="menu"/>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="show" identifier="Game" id="bll-tc-u35"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sLt-eL-FQ6" firstAttribute="leading" secondItem="cS1-L6-jkJ" secondAttribute="leading" constant="28" id="WIp-on-C3z"/>
+                            <constraint firstItem="cS1-L6-jkJ" firstAttribute="bottom" secondItem="sLt-eL-FQ6" secondAttribute="bottom" constant="20" id="a8O-tq-bJY"/>
+                            <constraint firstItem="sLt-eL-FQ6" firstAttribute="leading" secondItem="cS1-L6-jkJ" secondAttribute="leading" constant="28" id="noa-lF-L2p"/>
+                            <constraint firstItem="cS1-L6-jkJ" firstAttribute="bottom" secondItem="sLt-eL-FQ6" secondAttribute="bottom" constant="20" id="sMb-bJ-QRY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cS1-L6-jkJ"/>
+                    </view>
                     <size key="freeformSize" width="666" height="375"/>
                     <connections>
-                        <outlet property="square" destination="SvY-Gf-NGJ" id="4Tx-hl-FkW"/>
+                        <outlet property="menu" destination="sLt-eL-FQ6" id="xe3-Ky-oea"/>
+                        <outlet property="preview" destination="Ren-wL-eD4" id="Nc9-k0-BcZ"/>
+                        <outlet property="square" destination="tbW-zc-qnK" id="mfj-dk-bXt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JrM-i7-8pb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2847" y="322"/>
+            <point key="canvasLocation" x="2846.4000000000001" y="321.58920539730138"/>
         </scene>
         <!--Map Controller-->
         <scene sceneID="voT-o5-8px">
@@ -100,6 +132,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="menu" width="720" height="720"/>
         <image name="square" width="276" height="276"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="bll-tc-u35"/>
+    </inferredMetricsTieBreakers>
 </document>

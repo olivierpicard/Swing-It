@@ -55,6 +55,10 @@ class GameScene: SKScene
     let RAIN_SIZE_SMALL = CGSize(width: 1, height: 13)
     let THUNDERSTORM_DELAY = 1.5...3.0
     
+    let SOUND_TAKEN = SKAction.playSoundFileNamed("taken.wav", waitForCompletion: false)
+    let SOUND_GAMEOVER = SKAction.playSoundFileNamed("gameover.wav", waitForCompletion: false)
+    let SOUND_BOMB = SKAction.playSoundFileNamed("bomb.wav", waitForCompletion: false)
+    
     var timelapseItemGeneration: TimeInterval = 0.6
     var timelapseCloudGenerator: TimeInterval = 1
     private var swipeController: SwipeController!
@@ -79,7 +83,6 @@ class GameScene: SKScene
     
     
     override func didMove(to view: SKView) {
-        print("reset")
         backgroundColor = skyColor()
         motionManager = CMMotionManager()
         motionManager.startAccelerometerUpdates()
@@ -217,6 +220,11 @@ class GameScene: SKScene
     }
     
     
+    func increaseScore() {
+        score_label.text = String(Int(score_label.text!)! + 1)
+    }
+    
+    
     func getFlagGameState() -> GameState{
         return gameState
     }
@@ -229,7 +237,7 @@ class GameScene: SKScene
         if(_gameState == GameState.PLAY) {
             character?.reset()
             score_label.text = "0"
-//            markAsAccelerometerReferencePosition()
+            referenceMotionX = nil
             gameOverScreen.hide()
             welcomeScreen.hide()
             character.enable = true
@@ -242,6 +250,7 @@ class GameScene: SKScene
             welcomeScreen.show()
             score_label.isHidden = true
         } else if(_gameState == GameState.GAME_OVER) {
+            run(SOUND_GAMEOVER)
             welcomeScreen.hide()
             gameOverScreen.show()
         }

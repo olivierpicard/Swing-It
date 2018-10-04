@@ -10,7 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cb4c6c8-ec60-4918-8826-8df4eae27d26" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Assets.xcassets/menu.imageset/Contents.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Assets.xcassets/menu.imageset/menu-2925825_960_720.png" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/raw/bomb.mp3" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Sound/bomb.mp3" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/raw/gameover.wav" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/raw/taken.wav" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Sound/taken.wav" />
+      <change beforePath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It.xcodeproj/project.pbxproj" />
       <change beforePath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It.xcodeproj/project.xcworkspace/xcuserdata/olivierpicard.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It.xcodeproj/project.xcworkspace/xcuserdata/olivierpicard.xcuserdatad/UserInterfaceState.xcuserstate" />
+      <change beforePath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Base.lproj/Main.storyboard" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Base.lproj/Main.storyboard" />
+      <change beforePath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Bird.swift" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Bird.swift" />
+      <change beforePath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/CameraController.swift" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/CameraController.swift" />
+      <change beforePath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/GameScene.swift" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/GameScene.swift" />
+      <change beforePath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/GameViewController.swift" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/GameViewController.swift" />
+      <change beforePath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Thunderstorm.swift" afterPath="$PROJECT_DIR$/../iOS/Swing-It/Swing-It/Thunderstorm.swift" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,11 +62,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GameScene.kt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/GameScene.kt">
+      <file leaf-file-name="Character.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/Character.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="183" column="37" lean-forward="false" selection-start-line="183" selection-start-column="17" selection-end-line="183" selection-end-column="37" />
+            <state relative-caret-position="562">
+              <caret line="69" column="0" lean-forward="true" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -2281,8 +2294,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="800" />
-    <option name="height" value="600" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -2302,6 +2315,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -2349,8 +2364,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -3103,13 +3116,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/MainActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="61" column="39" lean-forward="true" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/CloudGenerator.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -3149,15 +3155,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="354">
           <caret line="184" column="29" lean-forward="false" selection-start-line="184" selection-start-column="29" selection-end-line="184" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/Character.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="66" column="9" lean-forward="true" selection-start-line="56" selection-start-column="8" selection-end-line="66" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3193,10 +3190,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/MainActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="83" column="37" lean-forward="true" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/GameScene.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="183" column="37" lean-forward="false" selection-start-line="183" selection-start-column="17" selection-end-line="183" selection-end-column="37" />
+        <state relative-caret-position="323">
+          <caret line="196" column="5" lean-forward="true" selection-start-line="196" selection-start-column="5" selection-end-line="196" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/caffeine/swingit/Character.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="562">
+          <caret line="69" column="0" lean-forward="true" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
           <folding />
         </state>
       </provider>

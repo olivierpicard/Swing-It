@@ -59,7 +59,7 @@ class Thunderstorm : SKSpriteNode, IUpdatable
     
     func flash()
     {
-        let y = sin(0.22*currentX)
+        let y = sin(0.38*currentX)
         self.alpha = CGFloat(y)
         currentX += 0.9
         if(y < 0) {

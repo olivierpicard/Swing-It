@@ -102,8 +102,11 @@ class Bird : SKSpriteNode, IUpdatable, ICollisionableListener
         _scene.removeChildren(in: [node])
         if(node is Ennemy) {
             isFalling = true
+            run(_scene.SOUND_BOMB)
         } else if node is Bonus {
             lifeBar.value += _scene.BONUS_VALUE
+            _scene.increaseScore()
+            run(_scene.SOUND_TAKEN)
         }
     }
     
