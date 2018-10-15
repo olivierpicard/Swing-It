@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  Swing-It
+
+  Created by Olivier Picard on 15/10/2018.
+  Copyright © 2018 Caffeine. All rights reserved.
+*/
+
+/*App*/
+"play" = "Play";
+"experience" = "Experience";
+"position" = "Position";
+"retry" = "Retry";
+"home" = "Home";

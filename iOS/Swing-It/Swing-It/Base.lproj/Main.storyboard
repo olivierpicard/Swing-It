@@ -136,6 +136,7 @@
         <image name="square" width="276" height="276"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="TQP-Kx-DpD"/>
         <segue reference="bll-tc-u35"/>
     </inferredMetricsTieBreakers>
 </document>

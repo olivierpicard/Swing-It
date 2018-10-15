@@ -25,9 +25,9 @@ class WelcomeScreen {
         self.title_label.fontSize = 55
         self.title_label.fontColor = UIColor.white
         
-        self.play_button = Button(text: "Jouer")
-        self.experience_button = Button(text: "Experience")
-        self.map_button = Button(text: "Position")
+        self.play_button = Button(text: NSLocalizedString("play", comment: "App"))
+        self.experience_button = Button(text: NSLocalizedString("experience", comment: "App"))
+        self.map_button = Button(text: NSLocalizedString("position", comment: "App"))
         
         self.title_label.position = CGPoint(x: scene.frame.midX, y: scene.size.height - (scene.size.height * 0.3))
         self.play_button.position = CGPoint(x: scene.frame.midX, y: scene.size.height - (scene.size.height * 0.45))

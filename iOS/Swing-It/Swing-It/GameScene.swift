@@ -57,7 +57,7 @@ class GameScene: SKScene
     
     let SOUND_TAKEN = SKAction.playSoundFileNamed("taken.wav", waitForCompletion: false)
     let SOUND_GAMEOVER = SKAction.playSoundFileNamed("gameover.wav", waitForCompletion: false)
-    let SOUND_BOMB = SKAction.playSoundFileNamed("bomb.wav", waitForCompletion: false)
+    let SOUND_BOMB = SKAction.playSoundFileNamed("bomb.mp3", waitForCompletion: false)
     let SOUND_RAIN = SKAudioNode(fileNamed: "rain.wav")
     
     var timelapseItemGeneration: TimeInterval = 0.6

@@ -19,10 +19,10 @@ class GameOverScreen {
     init(scene: GameScene) {
         self.scene = scene
         isHidden = true
-        self.retry_button = Button(text: "Recommencer")
+        self.retry_button = Button(text: NSLocalizedString("retry", comment: "App"))
         self.retry_button.position = CGPoint(x: scene.frame.midX, y: scene.size.height * 0.6)
         
-        self.menu_button = Button(text: "Accueil")
+        self.menu_button = Button(text: NSLocalizedString("home", comment: "App"))
         self.menu_button.position = self.retry_button.position
         self.menu_button.position.y -= self.retry_button.size.height + 30
     }
