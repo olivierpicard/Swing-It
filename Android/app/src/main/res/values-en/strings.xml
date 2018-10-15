@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SwingIt</string>
+    <string name="jouer">Play</string>
+    <string name="recommencer">Retry</string>
+    <string name="accueil">Home</string>
+    <string name="experience">Experience</string>
+    <string name="map">Map</string>
+    <string name="title_activity_qrcode">Lecteur QRCode</string>
+</resources>
